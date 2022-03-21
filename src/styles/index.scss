@@ -1,1 +1,5 @@
-@use "global";
+@import "./vars";
+@import "./fonts";
+@import "./typography";
+@import "./mixins";
+@import "./blocks/card";
