@@ -1,0 +1,53 @@
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-orient: vertical;
+}
+
+.container {
+    width: 100%;
+}
+
+.container__row_wide {
+    width: 95%;
+    margin: auto;
+    max-width: 1600px;
+    min-height: 80px;
+}
+
+.container__row {
+    margin: auto;
+
+    @media screen and (max-width: $smallMobile) {
+        width: 280px;
+    }
+
+    @media screen and (min-width: $smallMobile) {
+        width: 460px;
+    }
+
+    @media screen and (min-width: $mobile) {
+        width: 620px;
+    }
+
+    @media screen and (min-width: $tablet) {
+        width: 940px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        width: 1160px;
+    }
+}
+
+body {
+    height: 100%;
+}
+
+html {
+    height: 100%;
+}
+
+main {
+    flex: 1 0 auto;
+}
