@@ -1,0 +1,70 @@
+.main-page__images {
+    display: flex;
+    width: 150vw;
+    height: 150vh;
+
+}
+
+.main-page__image {
+    margin-top: 3rem;
+    width: 100%;
+    // vertical-align: middle;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    margin-left: -10rem;
+    margin-top: 2rem;
+    max-width: 1000px;
+    z-index: 0;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    margin-left: 50rem;
+    padding: 1.5rem;
+    color: $color_button;
+    font-weight: bold;
+    transition: 0.6s ease;
+    background-color: $backgroundColor_dark;
+    border-radius: 50%;
+}
+
+/* Position the "next button" to the right */
+.next {
+    margin-left: 0.5rem;
+    right: 1rem;
+    border-radius: 50%;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    color: white;
+    background-color: $color_button;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 11px;
+    width: 11px;
+    margin: 0 2px;
+    background-color: $color_gray5;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: $color_button;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
