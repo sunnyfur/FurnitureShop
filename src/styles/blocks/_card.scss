@@ -1,0 +1,137 @@
+.container_products {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(4, 1fr);
+
+    @media screen and (max-width:$desktop) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width:$tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width:$smallMobile) {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+.card-product {
+    $gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &__hover {
+        position: absolute;
+        background-color: rgba($card, 0.75);
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &:hover &__hover {
+        opacity: 1;
+    }
+
+    &__bonus {
+        position: absolute;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        right: $gap;
+        top: $gap;
+
+        &_sale {
+            background-color: $discount;
+        }
+
+        &_new {
+            background-color: $green;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &__info {
+        background-color: $card_down;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: $gap;
+        padding-bottom: $gap*2;
+    }
+
+    &__price {
+        display: flex;
+        column-gap: $gap;
+    }
+}
+
+.card-product__title {
+    font-family: $FontSemiBold;
+    font-size: 1.2rem;
+    color: $color_title;
+
+}
+
+.card-product__description {
+    font-family: $FontMedium;
+    font-size: 1rem;
+    color: $color_text;
+}
+
+.price_main {
+    font-family: $FontSemiBold;
+    font-size: 1.1rem;
+    // line-height: 150%;
+    color: $color_title;
+}
+
+.price_old {
+    font-family: $defaultFont;
+    font-size: 1rem;
+    color: $color_old-price;
+}
+
+.card-product__text {
+    margin: 0px;
+}
+
+.btn_like {
+
+    background-color: transparent;
+
+
+    &::before {
+        content: '♡';
+
+
+    }
+
+    &::after {
+        content: '♥';
+        color: $discount;
+
+    }
+}
+
+.btn_liked {
+
+    color: $discount;
+}
