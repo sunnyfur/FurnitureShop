@@ -96,6 +96,11 @@
     color: $color_text;
 }
 
+.card-product__like {
+    display: flex;
+    justify-content: space-between;
+}
+
 .price_main {
     font-family: $FontSemiBold;
     font-size: 1.1rem;
@@ -113,25 +118,28 @@
     margin: 0px;
 }
 
+.btn_social {
+    display: flex;
+    column-gap: 0.5rem;
+    justify-content: center;
+    font-family: $defaultFont;
+    color: $white;
+    border: solid red 1;
+
+}
+
+.btn_share {
+    width: 1.2rem;
+    height: 1.2rem;
+    @include shareMix($white);
+}
+
 .btn_like {
-
-    background-color: transparent;
-
-
-    &::before {
-        content: '♡';
-
-
-    }
-
-    &::after {
-        content: '♥';
-        color: $discount;
-
-    }
+    width: 1.5rem;
+    height: 1.5rem;
+    @include heartMix("none", $white);
 }
 
 .btn_liked {
-
-    color: $discount;
+    @include heartMix($white, $white);
 }
