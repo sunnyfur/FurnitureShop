@@ -1,7 +1,7 @@
-const {
-    months
-} = require("moment");
-const moment = require("moment.js");
+// const {
+//     months
+// } = require("moment");
+const moment = require("../../node_modules/moment/moment");
 class Product {
     static _count = 0;
     constructor(name, description, category, price, url, count, discont, date) {
@@ -16,7 +16,7 @@ class Product {
         this.Id = ++Product._count;
     }
     HasDiscount() {
-        return Discont >= 0 ? true : false;
+        return this.Discont >= 0 ? true : false;
     }
     GetDiscount() {
         return `-${this.Discont}%`;
@@ -35,7 +35,10 @@ class Product {
 }
 
 const listOfProductsAll = [];
-listOfProductsAll.push("Syltherine", "Stylish cafe chair", "chair", 2500000, "../images/our products/syltherine.png", 2, 30, "20.02.22");
+listOfProductsAll.push(new Product("Syltherine", "Stylish cafe chair", "chair", 3500000, "./images/our products/syltherine.png", 2, 30, "20.02.21"));
+listOfProductsAll.push(new Product("Syltherine", "Stylish cafe chair", "chair", 2500000, "/images/our products/syltherine.png", 2, 30, "20.02.22"));
+
+
 
 export {
     listOfProductsAll
