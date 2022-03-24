@@ -41,6 +41,7 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
+    "moment": "^2.29.1",
     "normalize.css": "^8.0.1"
   }
 }
