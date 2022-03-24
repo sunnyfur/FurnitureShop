@@ -18,6 +18,7 @@
 
         list-style-type: none;
         margin: 0;
+        padding: 0;
     }
 
     &__list-title {
@@ -25,6 +26,75 @@
         font-size: 1.5rem;
         color: $black;
         margin: 0;
-        padding: 0;
+        padding-bottom: 16px;
+        }
+
+        &__list-link {
+            display: inline-block;
+            padding-bottom: 16px;
+            text-decoration: none;
+            color: $color_gray2;
+            font-family: $defaultFont;
+        }
+
+        &__icon {
+            padding-right: 8px;
+        }
+        }
+
+        .form-update {
+            display: flex;
+            gap: 2px;
+
+            &__btn {
+                display: inline-block;
+                box-sizing: border-box;
+                border: none;
+                padding: 0;
+                width: 45px;
+                height: 45px;
+                background-color: $color_button;
+
+                svg {
+                    fill: $white;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    transition: background-color 0.4s ease;
+                    background: rgba(205, 214, 219, 0.3);
+                }
+
+                &:hover svg {
+                    fill: $color_button;
+
+                }
+            }
+
+            &__input {
+                width: 242px;
+                height: 45px;
+            padding: 0;
+            border: none;
+            background-color: $card_down;
+
+            &::placeholder {
+                color: $color_gray3;
+                font-family: $defaultFont;
+                font-size: 1rem;
+            }
+
+            &:active,
+            &:hover,
+            &:focus {
+                outline: 0;
+                outline-offset: 0;
+            }
+
+            &:active::placeholder,
+            &:hover::placeholder,
+            &:focus::placeholder {
+                color: transparent;
+            }
     }
 }
