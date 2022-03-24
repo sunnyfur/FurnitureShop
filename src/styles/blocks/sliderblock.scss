@@ -1,7 +1,8 @@
 .main-page__images {
+    min-width: 500px;
     display: flex;
-    width: 150vw;
-    height: 150vh;
+    width: 120vw;
+    height: 100vh;
 
 }
 
@@ -11,12 +12,20 @@
     // vertical-align: middle;
 }
 
+
 /* Slideshow container */
 .slideshow-container {
+    display: grid;
     margin-left: -10rem;
     margin-top: 2rem;
     max-width: 1000px;
     z-index: 0;
+
+    &__strelki {
+        text-align: center;
+        justify-content: right;
+
+    }
 }
 
 /* Next & previous buttons */

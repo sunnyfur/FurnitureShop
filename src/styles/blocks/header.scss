@@ -1,20 +1,178 @@
+.search {
+    background-color: white;
+    display: inline-block;
+    font-size: 1rem;
+    width: 40rem;
+    height: 1.5rem;
+    padding: 0.5rem;
+    padding-top: 0.8rem;
+
+
+    @media screen and (max-width:$desktop) {
+        width: 20rem;
+    }
+
+    @media screen and (max-width:$tablet) {
+        width: 15rem;
+    }
+
+    @media screen and (max-width:$smallMobile) {
+        width: 12rem;
+    }
+
+}
+
+[type='search'] {
+    border: none;
+    outline: none;
+    background-color: white;
+
+}
+
+.fas.fa-search {
+    color: $card;
+    margin-left: 5px;
+}
+
+input[type=text]::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input[type=text]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
+.header {
+    background: linear-gradient(to right, $backgroundColor_dark 60%, $backgroundColor_light 40%);
+}
+
+.main-page {
+    height: 70vh;
+    display: grid;
+    position: relative;
+    background: linear-gradient(to right, $backgroundColor_dark 60%, $backgroundColor_light 40%);
+}
+
+.card,
+.slideshow-container {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.card {
+    width: 25rem;
+    height: 35rem;
+    text-align: left;
+    margin-top: 1.5rem;
+    margin-left: 10rem;
+    background: rgba(252, 249, 249, 0.8);
+    padding: 1rem 3rem;
+    z-index: 5;
+
+    @media screen and (max-width:$desktop) {
+        width: 20rem;
+        height: 30rem;
+        margin-left: 7rem;
+    }
+
+    @media screen and (max-width:$tablet) {
+        width: 15rem;
+        height: 25rem;
+        margin-left: 6rem;
+    }
+
+    @media screen and (max-width:$smallMobile) {
+        width: 12rem;
+        height: 22rem;
+        margin-left: 5rem;
+
+    }
+
+}
+
+.card__h1 {
+    font-size: 3.5rem;
+    font-family: 'GilroyBold';
+    color: $card;
+}
+
+.cart_image {
+    width: 1.5rem;
+}
+
+.card__p {
+    font-family: 'GilroyMedium';
+    color: $color_text;
+    font-size: 1.5rem;
+}
+
+.card__button {
+    margin-top: 5%;
+    width: 100%;
+    height: 4rem;
+    font-size: 1.5rem;
+}
+
+
+
+
 .header__inner {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 3rem;
     font-family: $FontMedium;
 }
 
 .header__img {
+    height: auto;
     width: 74px;
     height: 29px;
-    height: auto;
 }
+
+
+// .header__menu {
+//     display: flex;
+//     align-items: center;
+//     gap: 4rem;
+// }
+
+// .header__item {
+//     font-size: 1rem;
+//     text-decoration: none;
+//     color: $card;
+//     margin-left: 1rem;
+
+//     &:hover {
+//         cursor: pointer;
+//     }
+// }
+
+// .header__page {
+//     margin-right: 0.5rem;
+
+//     &:hover {
+//         padding-bottom: 3px;
+//     }
+// }
+
+
 
 .header__menu {
     display: flex;
     align-items: center;
-    gap: 4rem;
+    gap: 1rem;
 }
 
 .header__item {
@@ -33,12 +191,13 @@
 
     &:hover {
         padding-bottom: 3px;
+        border-bottom: 2px solid black;
     }
 }
 
-
-.header__buttons {
-    margin-right: 5px;
+.header__page_active {
+    padding-bottom: 3px;
+    border-bottom: 2px solid black;
 }
 
 .header__check {
@@ -52,12 +211,9 @@
         width: 151px;
     }
 
-    .mobile__hidden {
-        display: none;
-    }
-
     .header__menu {
         position: relative;
+        margin-right: 10rem;
     }
 
     .header__img {
@@ -68,11 +224,13 @@
     .header__btn {
         display: flex;
         align-items: center;
-        right: 20px;
-        width: 26px;
-        height: 26px;
+        // right: 3rem;
+        width: 0.5rem;
+        margin-right: 5rem;
+        height: 1rem;
         cursor: pointer;
-        z-index: 4;
+        z-index: 10;
+
     }
 
     .header__btn>span,
@@ -80,8 +238,9 @@
     .header__btn>span::after {
         display: block;
         position: absolute;
-        width: 100%;
+        width: 2rem;
         height: 3px;
+        background-color: $color_button;
     }
 
     .header__btn>span::before {
@@ -129,9 +288,14 @@
 
     .header__item {
         display: block;
+        color: black;
         font-size: 22px;
+        font-weight: 400;
         text-decoration: none;
 
+        &:hover {
+            color: black;
+        }
     }
 
     .header__page {
@@ -152,6 +316,7 @@
         background-color: transparent;
 
         &:hover {
+            color: black;
             background: transparent;
         }
     }
@@ -199,117 +364,4 @@
         transition-duration: .5s;
     }
 
-}
-
-
-.header__social {
-    display: flex;
-
-    @media screen and (min-width: 1239px) {
-        display: none;
-    }
-}
-
-.header__social>a {
-    text-decoration: none;
-}
-
-.header__icon {
-    width: 30px;
-    height: 30px;
-    margin: 5px;
-}
-
-.search {
-    background-color: white;
-    display: inline-block;
-    font-size: 1rem;
-    width: 40rem;
-    height: 1.5rem;
-    padding: 0.5rem;
-    padding-top: 0.8rem;
-
-}
-
-[type='search'] {
-    border: none;
-    outline: none;
-    background-color: white;
-
-}
-
-.fas.fa-search {
-    color: $card;
-    margin-left: 5px;
-}
-
-input[type=text]::-ms-clear {
-    display: none;
-    width: 0;
-    height: 0;
-}
-
-input[type=text]::-ms-reveal {
-    display: none;
-    width: 0;
-    height: 0;
-}
-
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration {
-    display: none;
-}
-
-.header {
-    background: linear-gradient(to right, $backgroundColor_dark 60%, $backgroundColor_light 40%);
-}
-
-.main-page {
-    display: grid;
-    margin-bottom: 30%;
-    position: relative;
-    background: linear-gradient(to right, $backgroundColor_dark 60%, $backgroundColor_light 40%);
-}
-
-.card,
-.slideshow-container {
-    grid-column: 1;
-    grid-row: 1;
-}
-
-.card {
-    width: 25rem;
-    height: 35rem;
-    text-align: left;
-    margin-top: 1.5rem;
-    margin-left: 10rem;
-    margin-bottom: 2%;
-    background: rgba(252, 249, 249, 0.8);
-    padding: 1rem 3rem;
-    z-index: 5;
-}
-
-.card__h1 {
-    font-size: 3.5rem;
-    font-family: 'GilroyBold';
-    color: $card;
-}
-
-.cart_image {
-    width: 1.5rem;
-}
-
-.card__p {
-    font-family: 'GilroyMedium';
-    color: $color_text;
-    font-size: 1.5rem;
-}
-
-.card__button {
-    margin-top: 5%;
-    width: 100%;
-    height: 4rem;
-    font-size: 1.5rem;
 }
