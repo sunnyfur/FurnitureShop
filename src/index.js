@@ -36,9 +36,9 @@ function showSlides(n) {
     if (n < 1) {
         slideIndex = slides.length
     }
-    // for (i = 0; i < slides.length; i++) {
-    //     slides[i].style.display = "none";
-    // }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i]
             .className
@@ -49,9 +49,9 @@ function showSlides(n) {
 }
 
 
-document.querySelector('.prev').addEventListener('click',plusSlides(-1));
-document.querySelector('.next').addEventListener('click',plusSlides(1));
+document.querySelector('.prev').addEventListener('click',(e)=>plusSlides(-1));
+document.querySelector('.next').addEventListener('click',(e)=>plusSlides(1));
 
-document.querySelector('.dot1').addEventListener('click',currentSlide(1));
-document.querySelector('.dot2').addEventListener('click',currentSlide(2));
-document.querySelector('.dot3').addEventListener('click',currentSlide(3));
+document.querySelector('.dot1').addEventListener('click',(e)=>currentSlide(1));
+document.querySelector('.dot2').addEventListener('click',(e)=>currentSlide(2));
+document.querySelector('.dot3').addEventListener('click',(e)=>currentSlide(3));
