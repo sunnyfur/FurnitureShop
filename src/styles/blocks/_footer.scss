@@ -1,0 +1,26 @@
+.footer {
+    padding-top: 30px;
+
+
+    &__line {
+        border: 1px solid $footer_line;
+        margin: 0;
+    }
+
+    &__nav {
+        padding-top: 30px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__list {
+
+        list-style-type: none;
+        margin: 0;
+    }
+
+    &__list-title {
+        margin: 0;
+        padding: 0;
+    }
+}
