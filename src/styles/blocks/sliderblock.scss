@@ -1,0 +1,99 @@
+.main-page__images {
+    margin: 2% 3%;
+    display: grid;
+    justify-content: center;
+    width: 85vw;
+    margin-bottom: 3rem;
+    // border: 1px solid black;
+
+}
+
+// .main-page__image {
+//     margin-left: -5rem;
+//     align-self: center;
+//     // height: 105%;
+//     width: 130%;
+// }
+
+
+/* Slideshow container */
+.slideshow-container {
+    // border: 1px solid black;
+    display: grid;
+    // margin-left: 5rem;
+    // margin-top: 2rem;
+    width: 90vw;
+    z-index: 0;
+
+    &__strelki {
+        text-align: center;
+        justify-content: right;
+
+    }
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    margin-left: 50rem;
+    padding: 1.5rem;
+    color: $color_button;
+    font-weight: bold;
+    transition: 0.6s ease;
+    background-color: $backgroundColor_dark;
+    border-radius: 50%;
+
+    @media screen and (max-width:$desktop) {
+        margin-left: 30rem;
+    }
+
+    @media screen and (max-width:$tablet) {
+        margin-left: 20rem;
+    }
+
+    @media screen and (max-width:$smallMobile) {
+        margin-left: 15rem;
+    }
+
+}
+
+/* Position the "next button" to the right */
+.next {
+    margin-left: 0.5rem;
+    right: 1rem;
+    border-radius: 50%;
+
+
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    color: white;
+    background-color: $color_button;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 11px;
+    width: 11px;
+    margin: 0 2px;
+    background-color: $color_gray5;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    outline: 1px solid $color_button;
+}
+
+.active,
+.dot:hover {
+    background-color: $color_button;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
