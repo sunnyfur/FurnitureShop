@@ -1,4 +1,5 @@
 const dom = require("./createElementDom");
+const lists = require("./products.js");
 const GenerateCard = (product) => {
   const card = dom.createElemDOM("div", "card-product");
   card.id = product.id;
@@ -37,17 +38,28 @@ const GenerateCard = (product) => {
   price.appendChild(dom.createElemDOM("p", "card-product__text price_main", product.GetPrice()));
   price.appendChild(dom.createElemDOM("del", "price_old", product.GetOldPrice()));
 
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector(".container_products").appendChild(card);
-
-  });
-  console.log(product.Url);
-  // return card;
+  return card;
+}
+let startFrom = 0;
+let numOfLoaded = 8;
+const addCards = (count = numOfLoaded) => {
+  let i = +startFrom;
+  do {
+    document.querySelector(".container_products").appendChild(GenerateCard(lists.listOfProductsAll[i]));
+    i++;
+  } while (i < startFrom + numOfLoaded && i < lists.listOfProductsAll.length);
+  startFrom += numOfLoaded;
 }
 
-export {
-  GenerateCard
-};
+const GenerateCards = () => {
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log(lists.listOfProductsAll);
+    addCards(startFrom, numOfLoaded);
 
-// TODO сгенерировать карточки Для всех продуктов
-// TODO добавить событие на кнопку далее для отображения следующих карьочек
+
+  });
+  document.querySelector("#idShowMore").addEventListener("click", (e) => addCards(startFrom, numOfLoaded))
+}
+export {
+  GenerateCards
+};

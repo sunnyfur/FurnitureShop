@@ -1,10 +1,9 @@
 import './styles/index.scss';
 
-const lists = require("./js/products.js");
-const card = require("./js/allProductsHtml.js");
-console.log(lists.listOfProductsAll);
-card.GenerateCard(lists.listOfProductsAll[0]);
-card.GenerateCard(lists.listOfProductsAll[1]);
+// const lists = require("./js/products.js");
+const addCards = require("./js/allProductsHtml.js");
+addCards.GenerateCards();
+
 
 let slideIndex = 2;
 showSlides(slideIndex);
