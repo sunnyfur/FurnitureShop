@@ -11,6 +11,7 @@
         padding-top: 30px;
         display: flex;
         justify-content: space-between;
+        gap: 80px;
     }
 
     &__list {
@@ -20,6 +21,9 @@
     }
 
     &__list-title {
+        font-family: $FontBold;
+        font-size: 1.5rem;
+        color: $black;
         margin: 0;
         padding: 0;
     }
