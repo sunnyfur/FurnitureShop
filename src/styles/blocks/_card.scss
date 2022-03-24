@@ -1,6 +1,13 @@
+.container_products_all {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
 .container_products {
     display: grid;
-    gap: 32px;
+    gap: 1rem;
     grid-template-columns: repeat(4, 1fr);
 
     @media screen and (max-width:$desktop) {
@@ -60,7 +67,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
+        font-family: $FontMedium;
+        font-size: 1rem;
 
         &_sale {
             background-color: $discount;
@@ -80,6 +88,8 @@
         display: flex;
         justify-content: space-between;
         column-gap: $gap;
+        font-family: $defaultFont;
+        font-size: 1rem;
 
 
     }
@@ -99,6 +109,8 @@
     }
 }
 
+
+
 .card-product__title {
     font-family: $FontSemiBold;
     font-size: 1.2rem;
@@ -116,7 +128,6 @@
 .price_main {
     font-family: $FontSemiBold;
     font-size: 1.1rem;
-    // line-height: 150%;
     color: $color_title;
 }
 
@@ -134,28 +145,41 @@
     display: flex;
     column-gap: 0.5rem;
     justify-content: center;
-    font-family: $defaultFont;
-    color: $white;
+
+    $color: $white;
+    color: $color;
+
+    &_share {
+        width: 1.2rem;
+        height: 1.2rem;
+        @include shareMix($color);
+    }
+
+    &_like {
+        width: 1.5rem;
+        height: 1.5rem;
+        @include heartMix("none", $color);
+    }
+
+    &_liked {
+        @include heartMix($white, $white);
+    }
+
+    $color_hover:$discount;
 
     &:hover {
-        color: red;
+        color: $color_hover;
+    }
+
+    &:hover &_share {
+        @include shareMix($color_hover);
+    }
+
+    &:hover &_like {
+        @include heartMix($color_hover, $color_hover);
     }
 
 
-}
 
-.btn_share {
-    width: 1.2rem;
-    height: 1.2rem;
-    @include shareMix($white);
-}
 
-.btn_like {
-    width: 1.5rem;
-    height: 1.5rem;
-    @include heartMix("none", $white);
-}
-
-.btn_liked {
-    @include heartMix($white, $white);
 }
