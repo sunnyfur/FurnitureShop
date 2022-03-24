@@ -1,6 +1,6 @@
 const GenerateCard = (product) => {
-    const card = document.createElement("div");
-    card.innerHTML = ` <div class="card-product__hover">
+  const card = document.createElement("div");
+  card.innerHTML = ` <div class="card-product__hover">
     <button class="btn btn_card">Add to cart</button>
     <div class="card-product__like">
 
@@ -27,20 +27,20 @@ const GenerateCard = (product) => {
       <del class="price_old">Rp 3.500.000</del>
     </div>
   </div>`;
-    const img = document.createElement("img");
-    img.src = product.Url;
+  const img = document.createElement("img");
+  img.src = product.Url;
 
-    card.classList.add("card-product");
-    document.addEventListener("DOMContentLoaded", () => {
-        document.querySelector(".container_products").appendChild(img);
+  card.classList.add("card-product");
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector(".container_products").appendChild(img);
 
-    });
-    console.log(product.Url);
-    // return card;
+  });
+  console.log(product.Url);
+  // return card;
 }
 
 export {
-    GenerateCard
+  GenerateCard
 };
 
 // TODO сгенерировать карточки Для всех продуктов

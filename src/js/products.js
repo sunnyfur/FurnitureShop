@@ -35,7 +35,7 @@ class Product {
 }
 
 const listOfProductsAll = [];
-listOfProductsAll.push(new Product("Syltherine", "Stylish cafe chair", "chair", 3500000, "./images/our products/syltherine.png", 2, 30, "20.02.21"));
+listOfProductsAll.push(new Product("Syltherine", "Stylish cafe chair", "chair", 3500000, require("../images/our products/syltherine.png"), 2, 30, "20.02.21"));
 listOfProductsAll.push(new Product("Syltherine", "Stylish cafe chair", "chair", 2500000, "/images/our products/syltherine.png", 2, 30, "20.02.22"));
 
 
