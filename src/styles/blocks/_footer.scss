@@ -1,5 +1,8 @@
 .footer {
     padding-top: 30px;
+    @media screen and (max-width:$mobile) {
+        display: none;
+    }
 
 
     &__line {
@@ -12,6 +15,11 @@
         display: flex;
         justify-content: space-between;
         gap: 80px;
+        @media screen and (max-width:$desktop) {
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
     }
 
     &__list {
@@ -27,6 +35,9 @@
         color: $black;
         margin: 0;
         padding-bottom: 16px;
+        @media screen and (max-width:$desktop) {
+            font-size: 1rem;
+        }
         }
 
         &__list-link {
@@ -35,6 +46,12 @@
             text-decoration: none;
             color: $color_gray2;
             font-family: $defaultFont;
+            font-size: 1rem;
+
+            @media screen and (max-width:$desktop) {
+                font-size: 0.8rem;
+                padding-bottom: 10px;
+            }
         }
 
         &__icon {
@@ -74,9 +91,11 @@
             &__input {
                 width: 242px;
                 height: 45px;
-            padding: 0;
-            border: none;
-            background-color: $card_down;
+                padding: 0;
+                border: none;
+                background-color: $card_down;
+                color: $defaultFont;
+                font-size: 1.5rem;
 
             &::placeholder {
                 color: $color_gray3;
