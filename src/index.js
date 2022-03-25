@@ -79,3 +79,6 @@ document.querySelector('.dot3').addEventListener('click', (e) => currentSlide(3)
       list.style.marginLeft = position + 'px';
     };
 
+    document.querySelector('.beautiful-dot1').addEventListener('click', (e) => currentSlide(1));
+document.querySelector('.beautiful-dot2').addEventListener('click', (e) => currentSlide(2));
+document.querySelector('.beautiful-dot3').addEventListener('click', (e) => currentSlide(3));
