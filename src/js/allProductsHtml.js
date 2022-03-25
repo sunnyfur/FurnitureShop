@@ -1,16 +1,18 @@
 const dom = require("./createElementDom");
-const lists = require("./products.js");
-const onLikeClick = (parent) => {
-  const likebtn = parent.parentNode.querySelector(".btn_social_like");
+const lists = require("./products");
+const like = require("./liked");
+
+const onLikeClick = (element) => {
+  const likebtn = element.parentNode.querySelector(".btn_social_like");
   likebtn.classList.toggle("btn_social_liked");
-  // todo брать id элемента карточки и добавлятьили удалять из избранного 
+  like.toggleLike(element.closest(".card-product").Id);
 
 }
 
 
 const GenerateCard = (product) => {
   const card = dom.createElemDOM("div", "card-product");
-  card.id = product.id;
+  card.id = product.Id;
 
   const product__hover = dom.createElemDOM("div", "card-product__hover");
   card.appendChild(product__hover);
@@ -25,9 +27,11 @@ const GenerateCard = (product) => {
 
   btn_social = dom.createElemDOM("div", "btn_social");
   card_product__like.appendChild(btn_social);
-  btn_social.appendChild(dom.createElemDOM("div", "btn_social_like"));
+  const btn_like = dom.createElemDOM("div", "btn_social_like");
+  btn_social.appendChild(btn_like);
   btn_social.appendChild(dom.createElemDOM("span", "", "Like"));
   btn_social.addEventListener("click", (e) => onLikeClick(e.target));
+  like.isLiked(product.Id) ? btn_like.classList.add("btn_social_liked") : "";
 
 
   const bonuses = dom.createElemDOM("div", "card-product__bonuses");
