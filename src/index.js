@@ -1,18 +1,8 @@
 import './styles/index.scss';
-const test = require('./js/about.js');
-// import {
-//     sayHi,
-//     sayBye
-// } from './js/about.js';
 
-// console.log('hello webpack!');
-// console.log('hello webpack2!');
-
-// sayHi('John'); // Hello, John!
-// sayBye('John'); // Bye, John!
-//2 вариант подключения
-// test.sayHi('John'); // Hello, John!
-// test.sayBye('John'); // Bye, John!
+// const lists = require("./js/products.js");
+const addCards = require("./js/allProductsHtml.js");
+addCards.GenerateCards();
 
 
 let slideIndex = 2;
@@ -49,12 +39,12 @@ function showSlides(n) {
 }
 
 
-document.querySelector('.prev').addEventListener('click',(e)=>plusSlides(-1));
-document.querySelector('.next').addEventListener('click',(e)=>plusSlides(1));
+document.querySelector('.prev').addEventListener('click', (e) => plusSlides(-1));
+document.querySelector('.next').addEventListener('click', (e) => plusSlides(1));
 
-document.querySelector('.dot1').addEventListener('click',(e)=>currentSlide(1));
-document.querySelector('.dot2').addEventListener('click',(e)=>currentSlide(2));
-document.querySelector('.dot3').addEventListener('click',(e)=>currentSlide(3));
+document.querySelector('.dot1').addEventListener('click', (e) => currentSlide(1));
+document.querySelector('.dot2').addEventListener('click', (e) => currentSlide(2));
+document.querySelector('.dot3').addEventListener('click', (e) => currentSlide(3));
 
 
 //слайдер 50+ beautiful room inspiration
