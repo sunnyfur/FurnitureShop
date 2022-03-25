@@ -1,13 +1,100 @@
+.beautiful {
+    margin-top: 2%;
+    background-color: $backgroundColor_light;
+}
+
+.beautiful-container {
+    display: flex;
+}
+
+.card2 {
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10%;
+    width: 30%;
+}
+
+.card2__h1 {
+    font-size: 3rem;
+    font-family: 'GilroyBold';
+    color: $card;
+
+    @media screen and (max-width:$desktop) {
+        font-size: 2.5rem;
+    }
+
+    @media screen and (max-width:$tablet) {
+        font-size: 2rem;
+    }
+
+    @media screen and (max-width:$smallMobile) {
+        font-size: 1.5rem;
+
+    }
+}
+
+.card2__p {
+    font-family: 'GilroyMedium';
+    color: $color_text;
+    font-size: 1.3rem;
+
+    @media screen and (max-width:$desktop) {
+        font-size: 1.1rem;
+    }
+
+    @media screen and (max-width:$tablet) {
+        font-size: 1rem;
+    }
+
+    @media screen and (max-width:$smallMobile) {
+        font-size: 0.9rem;
+
+    }
+}
+
+.card2__button {
+    margin-top: 2%;
+    height: 3.5rem;
+    width: 15rem;
+    font-family: 'GilroySemiBold';
+    font-size: 1.1rem;
+    line-height: 150%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid #000000;
+
+    @media screen and (max-width:$desktop) {
+        line-height: 100%;
+        width: 13rem;
+        height: 3rem;
+        font-size: 1rem;
+    }
+
+    @media screen and (max-width:$tablet) {
+        width: 11rem;
+        height: 2.5rem;
+        font-size: 0.8rem;
+    }
+
+    @media screen and (max-width:$smallMobile) {
+        width: 8rem;
+        height: 22rem;
+        font-size: 0.7rem;
+
+    }
+}
+
+
+
 .carousel {
-    position: relative;
+    position: relative; //убирать нельзя так как стрелка отьедет
     width: 30vw;
     padding: 10px 40px;
-    background: #eee;
 }
 
 .carousel img {
     width: 100%;
-    height: 20%;
+    height: 40rem;
     /* делаем этот элемент блочным, чтобы убрать лишнее пространство вокруг картинок */
     display: block;
 }
@@ -15,34 +102,33 @@
 .arrow {
     position: absolute;
     top: 60px;
-    padding: 0;
-    background: #ddd;
-    border-radius: 15px;
-    border: 1px solid gray;
-    font-size: 24px;
     line-height: 24px;
     display: block;
+    color: $color_button;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: 25%;
+    margin-left: 56rem;
+    padding: 1.5rem;
+    color: $color_button;
+    font-weight: bold;
+    transition: 0.6s ease;
+    background-color: $white;
+    border-radius: 50%;
 }
 
-.arrow:focus {
-    outline: none;
-}
+// .arrow:focus {
+//     outline: none;
+// }
 
 .arrow:hover {
-    background: #ccc;
     cursor: pointer;
-}
-
-.prev {
-    left: 7px;
-}
-
-.next {
-    right: 7px;
+    color: white;
+    background-color: $color_button;
 }
 
 .gallery {
-    width: 100%;
+    width: 130%;
     overflow: hidden;
 }
 
@@ -60,4 +146,5 @@
 
 .gallery li {
     display: inline-block;
+    margin-right: 0.3%;
 }
