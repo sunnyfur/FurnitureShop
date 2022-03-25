@@ -1,5 +1,13 @@
 const dom = require("./createElementDom");
 const lists = require("./products.js");
+const onLikeClick = (parent) => {
+  const likebtn = parent.parentNode.querySelector(".btn_social_like");
+  likebtn.classList.toggle("btn_social_liked");
+  // todo брать id элемента карточки и добавлятьили удалять из избранного 
+
+}
+
+
 const GenerateCard = (product) => {
   const card = dom.createElemDOM("div", "card-product");
   card.id = product.id;
@@ -19,6 +27,8 @@ const GenerateCard = (product) => {
   card_product__like.appendChild(btn_social);
   btn_social.appendChild(dom.createElemDOM("div", "btn_social_like"));
   btn_social.appendChild(dom.createElemDOM("span", "", "Like"));
+  btn_social.addEventListener("click", (e) => onLikeClick(e.target));
+
 
   const bonuses = dom.createElemDOM("div", "card-product__bonuses");
   card.appendChild(bonuses);
