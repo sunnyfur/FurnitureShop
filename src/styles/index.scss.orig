@@ -9,7 +9,10 @@
 @import "./blocks/footer";
 @import "./blocks/sliderblock";
 @import "./blocks/ourvalues";
+<<<<<<< HEAD
 @import "./blocks/slider";
 @import "../../node_modules/normalize.css/normalize";
+=======
 @import "../../node_modules/normalize.css/normalize";
 @import "./blocks/funirofurniture";
+>>>>>>> Test
