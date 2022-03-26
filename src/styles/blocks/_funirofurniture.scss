@@ -15,6 +15,7 @@
     }
 
     &__grid-container {
+        justify-items: stretch;
         overflow: hidden;
         display: grid;
         row-gap: 10px;
