@@ -4,6 +4,8 @@ import './styles/index.scss';
 const addCards = require("./js/allProductsHtml.js");
 addCards.GenerateCards();
 
+const cart = require("./js/cart");
+
 
 let slideIndex = 2;
 showSlides(slideIndex);
@@ -56,29 +58,29 @@ document.querySelector('.dot3').addEventListener('click', (e) => currentSlide(3)
 //       i++;
 //     }
 
-    /* конфигурация */
-    let width = 500; // ширина картинки
-    let count = 2; // видимое количество изображений
+/* конфигурация */
+let width = 500; // ширина картинки
+let count = 2; // видимое количество изображений
 
-    let list = carousel.querySelector('ul');
-    let listElems = carousel.querySelectorAll('li');
+let list = carousel.querySelector('ul');
+let listElems = carousel.querySelectorAll('li');
 
-    let position = 0; // положение ленты прокрутки
+let position = 0; // положение ленты прокрутки
 
-    // carousel.querySelector('.prev').onclick = function() {
-    //   // сдвиг влево
-    //   position += width * count;
-    //   // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
-    //   position = Math.min(position, 0)
-    //   list.style.marginLeft = position + 'px';
-    // };
+// carousel.querySelector('.prev').onclick = function() {
+//   // сдвиг влево
+//   position += width * count;
+//   // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
+//   position = Math.min(position, 0)
+//   list.style.marginLeft = position + 'px';
+// };
 
-    carousel.querySelector('.arrow').onclick = function() {
-      position -= width * count;
-      position = Math.max(position, -width * (listElems.length - count));
-      list.style.marginLeft = position + 'px';
-    };
+carousel.querySelector('.arrow').onclick = function () {
+    position -= width * count;
+    position = Math.max(position, -width * (listElems.length - count));
+    list.style.marginLeft = position + 'px';
+};
 
-    document.querySelector('.beautiful-dot1').addEventListener('click', (e) => currentSlide(1));
+document.querySelector('.beautiful-dot1').addEventListener('click', (e) => currentSlide(1));
 document.querySelector('.beautiful-dot2').addEventListener('click', (e) => currentSlide(2));
 document.querySelector('.beautiful-dot3').addEventListener('click', (e) => currentSlide(3));
