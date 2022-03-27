@@ -64,13 +64,14 @@ const DeleteFromCart = (id) => {
     }
 }
 
-listCart.push(new CartProduct("idProduct1"));
-listCart.push(new CartProduct("idProduct3"));
+// listCart.push(new CartProduct("idProduct1"));
+// listCart.push(new CartProduct("idProduct3"));
 
-AddToCart("idProduct1");
-AddToCart("idProduct1");
+// AddToCart("idProduct1");
+// AddToCart("idProduct1");
 
 
 export {
-    listCart
+    AddToCart,
+    DeleteFromCart
 }
