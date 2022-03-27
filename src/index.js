@@ -8,6 +8,10 @@ const slider = require("./js/slider.js");
 slider.SliderHeaderBlock();
 slider.SliderBeautifulBlock();
 
+
+const HeaderSearch = require("./js/search.js");
+HeaderSearch.Search();
+
 let arrayEmail=[];
 document.addEventListener("DOMContentLoaded", function (event) {
     if (localStorage.getItem('email') != null) {
