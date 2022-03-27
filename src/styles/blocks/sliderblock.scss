@@ -4,16 +4,29 @@
     justify-content: center;
     width: 85vw;
     margin-bottom: 3rem;
-    // border: 1px solid black;
 
 }
 
-// .main-page__image {
-//     margin-left: -5rem;
-//     align-self: center;
-//     // height: 105%;
-//     width: 130%;
-// }
+.main-page__image {
+
+    @media screen and (max-width:$desktop) {
+        width: 100%;
+    }
+
+    @media screen and (max-width:$tablet) {
+        width: 100%;
+    }
+
+    @media screen and (max-width:$smallMobile) {
+        width: 100%;
+    }
+
+    @media screen and (max-width:$smallMobile) {
+        width: 100%;
+    }
+
+
+}
 
 
 /* Slideshow container */
@@ -53,7 +66,7 @@
     }
 
     @media screen and (max-width:$smallMobile) {
-        margin-left: 15rem;
+        margin-left: 12rem;
     }
 
 }
