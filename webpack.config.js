@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // подключаем соответствующие плагины
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const path = require('path');//поможет нам с абсолютным путем, что бы не гадать где проект она уже есть в node.js не надо устанавливать
+const path = require('path'); //поможет нам с абсолютным путем, что бы не гадать где проект она уже есть в node.js не надо устанавливать
 
 let mode = 'development';
 if (process.env.NODE_ENV === 'production') {
@@ -27,6 +27,10 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html'
+    }),
+    new HtmlWebpackPlugin({ // Also generate a test.html
+      filename: 'cart.html',
+      template: './src/cart.html'
     })
   ], //https://www.npmjs.com/package/html-webpack-plugin дока template - путь, откуда и какой файл брать что бы скопмилировать в папку dist
   performance: {
