@@ -74,6 +74,7 @@ const AddToCart = (id) => {
 
     storage.setLocal("cart", listCart);
 
+
 }
 const DeleteProduct = (id) => {
     // Найти элемент в корзине
@@ -92,7 +93,13 @@ const DeleteFromCart = (id) => {
     }
     storage.setLocal("cart", listCart);
 }
-
+const GetCart = (id) => {
+    const index = GetIndex(id)
+    if (index != -1) {
+        return listCart[index];
+    }
+    return false;
+}
 
 
 
@@ -101,7 +108,7 @@ const DeleteFromCart = (id) => {
 
 // AddToCart("idProduct1");
 // AddToCart("idProduct1");
-const GetCart = () => {
+const GetCartAll = () => {
     listCart = storage.getLocal("cart");
     listCart = listCart.map(elem => {
         const cardP = new CartProduct;
@@ -111,13 +118,14 @@ const GetCart = () => {
     });
 
 }
-GetCart();
+GetCartAll();
 
 export {
     listCart,
-    // GetCart,
+    GetCart,
     AddToCart,
     DeleteProduct,
     DeleteFromCart,
+    GetCartAll,
     CartProduct
 }
