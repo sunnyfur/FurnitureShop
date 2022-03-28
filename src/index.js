@@ -1,12 +1,14 @@
+// Only common code for all pages!!!
 import './styles/index.scss';
 
 // const lists = require("./js/products.js");
-const addCards = require("./js/allProductsHtml.js");
-addCards.GenerateCards();
-require('./js/cart');
-const slider = require("./js/slider.js");
-slider.SliderHeaderBlock();
-slider.SliderBeautifulBlock();
+// move to mainPage.js
+// const addCards = require("./js/allProductsHtml.js");
+// addCards.GenerateCards();
+// require('./js/cart');
+// const slider = require("./js/slider.js");
+// slider.SliderHeaderBlock();
+// slider.SliderBeautifulBlock();
 
 let arrayEmail = [];
 document.addEventListener("DOMContentLoaded", function (event) {

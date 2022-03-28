@@ -10,5 +10,5 @@ const GenerateCard = (cartProduct) => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    [...cart.listCart].forEach(cartProduct => document.querySelector('#container_cart').appendChild(GenerateCard(Cartproduct)));
+    [...cart.listCart].forEach(cartProduct => document.querySelector('.container_products').appendChild(GenerateCard(Cartproduct)));
 })

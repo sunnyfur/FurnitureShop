@@ -64,7 +64,7 @@ let numOfLoaded = 8;
 const addCards = (count = numOfLoaded) => {
   let i = +startFrom;
   do {
-    document.querySelector("#container_products").appendChild(GenerateCard(lists.listOfProductsAll[i]));
+    document.querySelector(".container_products").appendChild(GenerateCard(lists.listOfProductsAll[i]));
     i++;
   } while (i < startFrom + numOfLoaded && i < lists.listOfProductsAll.length);
   startFrom += numOfLoaded;
