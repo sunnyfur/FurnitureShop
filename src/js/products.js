@@ -38,6 +38,9 @@ class Product {
     }
 
 }
+const GetProduct = (id) => {
+    listOfProductsAll.find(elem => elem.Id == id);
+}
 
 const listOfProductsAll = [];
 listOfProductsAll.push(new Product("Syltherine", "Stylish cafe chair", "chair", 25000, require("../images/our products/syltherine.png"), 2, 30, "20.02.21"));
@@ -79,5 +82,6 @@ listOfProductsAll.push(new Product("Potty", "Minimalist flower pot", "pot", 5000
 
 
 export {
-    listOfProductsAll
+    listOfProductsAll,
+    GetProduct
 };

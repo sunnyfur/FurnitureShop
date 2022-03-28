@@ -1,5 +1,6 @@
 const list = require("./products");
-const listCart = [];
+let listCart = [];
+const storage = require('./LocalStorage');
 
 class CartProduct {
     _id;
@@ -22,19 +23,21 @@ class CartProduct {
         return this._count;
     }
     AddToCount() {
-        // try {
-        const allCount = list.listOfProductsAll.find(elem => elem.Id == this.Id);
 
-        console.log(allCount.Count);
-        if (allCount.Count > this._count) {
-            this._count++;
-        } else {
-            throw new Error("There is not enough product");
-        }
+        // if (GetProduct().Count > this._count) {
+        this._count++;
+        alert("Add to cart");
+        // } else {
+        //     throw new Error("There is not enough product");
+        // }
 
     }
     DeleteFromCount() {
         if (this._count > 0) this._count--;
+    }
+
+    GetProduct() {
+        return list.GetProduct(this.Id);
     }
 
 
@@ -45,14 +48,17 @@ const AddToCart = (id) => {
     const listId = [...listCart].map(elem => elem.Id);
     const index = listId.indexOf(id);
     if (index == -1) {
-        listCart.push(new CartProduct(id))
+        listCart.push(new CartProduct(id));
+
     } else {
-        try {
-            listCart[index].AddToCount();
-        } catch (err) {
-            alert(err.message);
-        }
+        //     try {
+        listCart[index].AddToCount();
+        //     } catch (err) {
+        //         alert(err.message);
+        //     }
     }
+
+    storage.setLocal("cart", listCart);
 
 }
 const DeleteFromCart = (id) => {
@@ -62,6 +68,7 @@ const DeleteFromCart = (id) => {
     if (index != -1) {
         listCart[index].DeleteFromCount();
     }
+    storage.setLocal("cart", listCart);
 }
 
 // listCart.push(new CartProduct("idProduct1"));
@@ -69,9 +76,13 @@ const DeleteFromCart = (id) => {
 
 // AddToCart("idProduct1");
 // AddToCart("idProduct1");
-
+const GetCart = () => {
+    listCart = storage.getLocal("cart");
+}
+// GetCart();
 
 export {
+    listCart,
     AddToCart,
     DeleteFromCart
 }
