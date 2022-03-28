@@ -6,13 +6,14 @@ const cart = require('./cart');
 const onLikeClick = (element) => {
   const likebtn = element.parentNode.querySelector(".btn_social_like");
   likebtn.classList.toggle("btn_social_liked");
-  like.toggleLike(element.closest(".card-product").Id);
+  like.toggleLike(element.closest(".card-product").id);
 
 }
 
 
 const GenerateCard = (product) => {
   const card = dom.createElemDOM("div", "card-product");
+
   card.id = product.Id;
 
   const product__hover = dom.createElemDOM("div", "card-product__hover");

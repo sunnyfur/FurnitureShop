@@ -37,9 +37,10 @@ class Product {
         return moment().diff(this.Date, "months") <= 1;
     }
 
+
 }
 const GetProduct = (id) => {
-    listOfProductsAll.find(elem => elem.Id == id);
+    return listOfProductsAll.find(elem => elem.Id == id);
 }
 
 const listOfProductsAll = [];

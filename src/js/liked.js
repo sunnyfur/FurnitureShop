@@ -6,7 +6,9 @@ const isLiked = (id) => {
 
 const toggleLike = (id) => {
 
+    console.log(id);
     (isLiked) ? listLiked.splice(listLiked.indexOf(id), 1): listLiked.push(id);
+    console.log(listLiked);
 }
 // TODO  брать массив из LocalStorage, записывать в LocslStorage
 
