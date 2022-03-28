@@ -1,6 +1,7 @@
 const dom = require("./createElementDom");
 const lists = require("./products");
 const like = require("./liked");
+const cart = require('./cart');
 
 const onLikeClick = (element) => {
   const likebtn = element.parentNode.querySelector(".btn_social_like");
@@ -16,7 +17,11 @@ const GenerateCard = (product) => {
 
   const product__hover = dom.createElemDOM("div", "card-product__hover");
   card.appendChild(product__hover);
-  product__hover.appendChild(dom.createElemDOM("button", "btn btn_card", "Add to cart"));
+
+  const btn_add = dom.createElemDOM("button", "btn btn_card", "Add to cart");
+  product__hover.appendChild(btn_add);
+  btn_add.addEventListener("click", (e) => cart.AddToCart(product.Id));
+
   const card_product__like = dom.createElemDOM("div", "card-product__like");
   product__hover.appendChild(card_product__like);
 
@@ -67,7 +72,7 @@ const addCards = (count = numOfLoaded) => {
 
 const GenerateCards = () => {
   document.addEventListener("DOMContentLoaded", () => {
-    console.log(lists.listOfProductsAll);
+    // console.log(lists.listOfProductsAll);
     addCards(startFrom, numOfLoaded);
 
 

@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // подключаем соответствующие плагины
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const path = require('path');//поможет нам с абсолютным путем, что бы не гадать где проект она уже есть в node.js не надо устанавливать
+const path = require('path'); //поможет нам с абсолютным путем, что бы не гадать где проект она уже есть в node.js не надо устанавливать
 
 let mode = 'development';
 if (process.env.NODE_ENV === 'production') {
@@ -11,9 +11,11 @@ if (process.env.NODE_ENV === 'production') {
 
 module.exports = {
   mode: mode, //настраиваем режим сборки, код выше
-  // entry: {
-  //  main: './src/index.js'// точка входа, куда заглянет вебпак в первую очередь
-  // },
+  entry: {
+    index: './src/index.js', // точка входа, куда заглянет вебпак в первую очередь
+    cartPage: './src/cartPage.js',
+    mainPage: './src/mainPage.js',
+  },
   output: { //точка выхода , аналог bandle.js из browserify
     filename: '[name].[contenthash].js',
     assetModuleFilename: "assets/[hash][ext][query]", //куда будут падать картинки
@@ -26,7 +28,13 @@ module.exports = {
       filename: '[name].[contenthash].css' //настраиваем хеширование
     }),
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/index.html',
+      chunks: ["index", "mainPage"]
+    }),
+    new HtmlWebpackPlugin({ // Also generate a test.html
+      filename: 'cart.html',
+      template: './src/cart.html',
+      chunks: ["index", "cartPage"]
     })
   ], //https://www.npmjs.com/package/html-webpack-plugin дока template - путь, откуда и какой файл брать что бы скопмилировать в папку dist
   performance: {
