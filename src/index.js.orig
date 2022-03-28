@@ -1,88 +1,52 @@
+// Only common code for all pages!!!
 import './styles/index.scss';
 
 // const lists = require("./js/products.js");
-const addCards = require("./js/allProductsHtml.js");
-addCards.GenerateCards();
-
-
-let slideIndex = 2;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {
-        slideIndex = 1
-    }
-    if (n < 1) {
-        slideIndex = slides.length
-    }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i]
-            .className
-            .replace(" active", "");
-    }
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
-}
-
-
-document.querySelector('.prev').addEventListener('click', (e) => plusSlides(-1));
-document.querySelector('.next').addEventListener('click', (e) => plusSlides(1));
+// move to mainPage.js
+// const addCards = require("./js/allProductsHtml.js");
+// addCards.GenerateCards();
+// require('./js/cart');
+// const slider = require("./js/slider.js");
+// slider.SliderHeaderBlock();
+// slider.SliderBeautifulBlock();
 
 <<<<<<< HEAD
-document.querySelector('.dot1').addEventListener('click',(e)=>currentSlide(1));
-document.querySelector('.dot2').addEventListener('click',(e)=>currentSlide(2));
-document.querySelector('.dot3').addEventListener('click',(e)=>currentSlide(3));
+const slider = require("./js/slider.js");
+slider.SliderHeaderBlock();
+slider.SliderBeautifulBlock();
 
 
-//слайдер 50+ beautiful room inspiration
+const HeaderSearch = require("./js/search.js");
+HeaderSearch.Search();
 
-let i = 1;
-    for(let li of carousel.querySelectorAll('li')) {
-      li.style.position = 'relative';
-      li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`);
-      i++;
-    }
-
-    /* конфигурация */
-    let width = 130; // ширина картинки
-    let count = 2; // видимое количество изображений
-
-    let list = carousel.querySelector('ul');
-    let listElems = carousel.querySelectorAll('li');
-
-    let position = 0; // положение ленты прокрутки
-
-    carousel.querySelector('.prev').onclick = function() {
-      // сдвиг влево
-      position += width * count;
-      // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
-      position = Math.min(position, 0)
-      list.style.marginLeft = position + 'px';
-    };
-
-    carousel.querySelector('.next').onclick = function() {
-      // сдвиг вправо
-      position -= width * count;
-      // последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
-      position = Math.max(position, -width * (listElems.length - count));
-      list.style.marginLeft = position + 'px';
-    };
+let arrayEmail=[];
 =======
-document.querySelector('.dot1').addEventListener('click', (e) => currentSlide(1));
-document.querySelector('.dot2').addEventListener('click', (e) => currentSlide(2));
-document.querySelector('.dot3').addEventListener('click', (e) => currentSlide(3));
+let arrayEmail = [];
 >>>>>>> Test
+document.addEventListener("DOMContentLoaded", function (event) {
+    if (localStorage.getItem('email') != null) {
+        arrayEmail = JSON.parse(localStorage.getItem('email'));
+    }
+});
+
+email__btn.addEventListener("click", (event) => {
+    let mailFormat = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;
+    let email = document.querySelector(".form-update__input").value;
+    if (email == "") {
+        document.getElementById('errEmail').textContent = "Вы не ввели Email";
+        document.getElementById('FollowEmail').textContent = '';
+    } else if (!email.match(mailFormat)) {
+        document.getElementById('errEmail').textContent = "Неверный формат Email. Пример: example@mail.com";
+        email = "";
+        document.querySelector(".form-update__input").textContent = "";
+        document.getElementById('FollowEmail').textContent = '';
+        return false;
+    } else {
+        document.getElementById('errEmail').textContent = '';
+        arrayEmail.push(email);
+        localStorage.setItem('email', JSON.stringify(arrayEmail));
+        document.querySelector(".form-update__input").textContent = "";
+        document.getElementById('FollowEmail').textContent = "Вы подписались на обновления";
+        email = "";
+    }
+})
