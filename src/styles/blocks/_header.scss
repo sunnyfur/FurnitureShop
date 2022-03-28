@@ -428,3 +428,21 @@ input[type="search"]::-webkit-search-results-decoration {
     display: none !important;
 
 }
+
+.NoResults {
+    font-size: 35px;
+    line-height: 120%;
+    color: $color_title;
+
+    @media screen and (max-width: $tablet) {
+        font-size: 38px;
+    }
+
+    @media screen and (max-width: $mobile) {
+        font-size: 36px;
+    }
+
+    @media screen and (max-width: $smallMobile) {
+        font-size: 32px;
+    }
+}

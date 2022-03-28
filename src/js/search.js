@@ -4,24 +4,31 @@ let search=document.getElementById("header__search");
 search.onkeyup=function(){
     let searchCard=document.querySelectorAll(".card-product");
     let search_value=this.value.trim().toUpperCase();
-    let catalog=document.querySelectorAll(".card-product__text")
 if (search_value) {
+    let noResult=document.getElementById('NoResults');
     document.querySelector(".main-page").classList.add('hide');
     document.querySelector(".elems-container_values").classList.add('hide');
     document.querySelector(".beautiful").classList.add('hide');
     document.querySelector(".furniture").classList.add('hide');
-    catalog.forEach(elem => {
+    document.querySelector(".subtitle").innerHTML="Seaching results";
+    searchCard.forEach(elem => {
         if (elem.innerText.toUpperCase().search(search_value) == -1) {
-            elem.closest(".card-product").classList.add('hide');
-            // elem.closest("img").classList.add('hide');
-            
+            elem.classList.add('hide');
+            document.querySelector("#idShowMore").classList.add('hide');   
         }
     });
+let anyMatch=false;
+    searchCard.forEach(function(elem){
+        let isMatching=new RegExp(search_value,"gi").test(elem.innerText.toUpperCase());
+        anyMatch=anyMatch || isMatching;
+        elem.classList.toggle("hide",!isMatching);
+    });
+    noResult.classList.toggle("hide",anyMatch);
 }
     else {
-        catalog.forEach(elem => {
-            // elem.closest("img").classList.remove('hide');
-            elem.closest(".card-product").classList.remove('hide');
+        searchCard.forEach(elem => {
+            elem.classList.remove('hide');
+            document.querySelector("#idShowMore").classList.remove('hide')
         })
     }
 
