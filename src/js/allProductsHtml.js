@@ -6,7 +6,7 @@ const cart = require('./cart');
 const onLikeClick = (element) => {
   const likebtn = element.parentNode.querySelector(".btn_social_like");
   likebtn.classList.toggle("btn_social_liked");
-  like.toggleLike(element.closest(".card-product").Id);
+  like.toggleLike(element.closest(".card-product").id);
 
 }
 

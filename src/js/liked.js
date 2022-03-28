@@ -1,4 +1,8 @@
-const listLiked = ["idProduct1", "idProduct6"];
+const listLiked = [];
+console.log(listLiked);
+const localStorage = require("./LocalStorage.js");
+
+ 
 
 const isLiked = (id) => {
     return listLiked.indexOf(id) != -1;
@@ -6,12 +10,19 @@ const isLiked = (id) => {
 
 const toggleLike = (id) => {
 
-    (isLiked) ? listLiked.splice(listLiked.indexOf(id), 1): listLiked.push(id);
+    (isLiked(id)) ? listLiked.splice(listLiked.indexOf(id), 1) : listLiked.push(id);
+    localStorage.setLocal("favouriteCollection",listLiked);
 }
 // TODO  брать массив из LocalStorage, записывать в LocslStorage
+
+
+
+
+
+
 
 export {
     listLiked,
     isLiked,
-    toggleLike
-}
+    toggleLike,
+   }
