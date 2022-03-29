@@ -1,5 +1,6 @@
 const cart = require('./cart');
 const dom = require("./createElementDom");
+const drawCount = require('./cartCount');
 
 
 //TODO заменить тестовые классы .card-product__description, ... на новые после верстки
@@ -13,20 +14,22 @@ const AddBtn = (element, cartObj) => {
         element.closest(".card-product").querySelector(".card_valid").innerText = err.message;
     }
 
-    element.closest(".card-product").querySelector(".card-product__description").innerText = cartObj.Count;
-
+    element.closest(".card-product").querySelector(".card-product__description").value = cartObj.Count;
+    drawCount.DrawCartCount();
 }
 
 const DeleteBtn = (element, cartObj) => {
     cart.DeleteProduct(cartObj.Id);
-    element.closest(".card-product").querySelector(".card-product__description").innerText = cartObj.Count;
-    element.closest(".card-product").querySelector(".card_valid").innerText = "";
+    element.closest(".card-product").querySelector(".card-product__description").value = cartObj.Count;
+    element.closest(".card-product").querySelector(".card_valid").v = "";
+    drawCount.DrawCartCount();
 }
 
 const DeleteFromCart = (element, cartObj) => {
 
     cart.DeleteFromCart(cartObj.Id);
     element.closest(".card-product").remove();
+    drawCount.DrawCartCount();
 }
 
 
@@ -39,7 +42,9 @@ const GenerateCard = (cartProduct) => {
     const div = dom.createElemDOM("div", "card-product");
     div.id = product.Id;
     div.appendChild(dom.createElemDOM("p", "", product.Name));
-    div.appendChild(dom.createElemDOM("p", "card-product__description", cartProduct.Count));
+    const count = dom.createElemDOM("input", "card-product__description", cartProduct.Count);
+    count.value = cartProduct.Count;
+    div.appendChild(count);
     div.appendChild(dom.createElemDOM("p", "card_valid"));
     const addButt = div.appendChild(dom.createElemDOM("input"));
     addButt.type = "button";
@@ -58,31 +63,18 @@ const GenerateCard = (cartProduct) => {
 
 }
 
-// const CheckCart = (e) => {
-//     e.preventDefault();
-//     [...cart.listCart].forEach(cartPr => {
-
-//         const checked = cartPr.CheckCount;
-//         if (checked<) {
-//             let mssg = "Available: " + ;
-
-//             document.querySelector("#" + cartPr.Id).querySelector(".card_valid")
-//         }
-
-//     })
-
-
-
-
-
-// }
-
+document.querySelector(".cart__total-cost").innerHTML = cart.GetSumCount();
 document.addEventListener("DOMContentLoaded", () => {
 
     [...cart.listCart].forEach(cartProduct => document.querySelector('.container_products').appendChild(GenerateCard(cartProduct)));
+    const tt = document.querySelector("#idCart").appendChild(dom.createElemDOM("input"));
+    tt.type = "text";
+    document.addEventListener("onchange", () => {
+        console.log("fdsf");
+        document.querySelector(".cart__total-cost").innerHTML = cart.GetSumCount();
+        // document.querySelector(".cart__total-cost").innerText = cart.GetSumCount();
+    });
 
-    // если корзина не пустая, то добавить кнопку
-    // document.querySelector("#idCart").addEventListener("submit", (e) => CheckCart(e));
 
 
 })

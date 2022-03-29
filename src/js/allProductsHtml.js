@@ -1,7 +1,8 @@
-const dom = require("./createElementDom");
+const dom = require('./createElementDom');
 const lists = require("./products");
 const like = require("./liked");
 const cart = require('./cart');
+const drawCount = require('./cartCount');
 
 const onLikeClick = (element) => {
   const likebtn = element.parentNode.querySelector(".btn_social_like");
@@ -24,7 +25,7 @@ const AddToCart = (element, product) => {
 
   if (!card_cart.classList.contains("card-cart-in")) card_cart.classList.add("card-cart-in");
   card_cart.querySelector(".card-cart__count").innerText = cart.GetCart(product.Id).Count + "  " + erMsg;
-
+  drawCount.DrawCartCount();
 
 }
 
@@ -106,7 +107,6 @@ const GenerateCards = () => {
   document.addEventListener("DOMContentLoaded", () => {
     // console.log(lists.listOfProductsAll);
     addCards(startFrom, numOfLoaded);
-
 
   });
   document.querySelector("#idShowMore").addEventListener("click", (e) => addCards(startFrom, numOfLoaded))

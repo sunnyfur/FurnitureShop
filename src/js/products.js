@@ -30,13 +30,22 @@ class Product {
         return this.HasDiscount() ? price : "";
     }
     GetPrice() {
-        //TODO return format RP 22.000.000
         return this.HasDiscount() ? this.Price.percentage(100 - this.Discont).toFormat('$0,0.00') : this.Price.toFormat('$0,0.00');
     }
     IsNew() {
         return moment().diff(this.Date, "months") <= 1;
     }
+    SumPrice(price) {
+        if (price == 0) price = Dinero.default({
+            amount: price
+        });
+        return this.Price.add(price);
+    }
 
+    static GetPriceFormat(price) {
+        return price.toFormat('$0,0.00');
+
+    }
 
 }
 const GetProduct = (id) => {
@@ -84,5 +93,6 @@ listOfProductsAll.push(new Product("Potty", "Minimalist flower pot", "pot", 5000
 
 export {
     listOfProductsAll,
-    GetProduct
+    GetProduct,
+    Product
 };
