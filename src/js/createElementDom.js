@@ -1,3 +1,5 @@
+
+
 export const createElemDOM = (typeElem, classes, inner = "") => {
     const node = document.createElement(typeElem);
     if (classes) {
