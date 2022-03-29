@@ -11,6 +11,15 @@ const onLikeClick = (element) => {
 
 }
 
+const onShareClick = (element)=>{
+  let title=element.closest(".card-product__text")
+const shareData = {
+    title: {title},
+    text: 'Look!',
+    url: '#'
+  }
+  navigator.share(shareData)
+}
 
 
 const AddToCart = (element, product) => {
@@ -58,12 +67,13 @@ const GenerateCard = (product) => {
   const card_product__like = dom.createElemDOM("div", "card-product__like");
   product__hover.appendChild(card_product__like);
 
-  let btn_social = dom.createElemDOM("div", "btn_social");
-  card_product__like.appendChild(btn_social);
-  btn_social.appendChild(dom.createElemDOM("div", "btn_social_share"));
-  btn_social.appendChild(dom.createElemDOM("span", "", "Share"));
+  let btn_social_share = dom.createElemDOM("div", "btn_social");
+  card_product__like.appendChild(btn_social_share);
+  btn_social_share.appendChild(dom.createElemDOM("div", "btn_social_share"));
+  btn_social_share.appendChild(dom.createElemDOM("span", "", "Share"));
+  btn_social_share.addEventListener("click", (e) => onShareClick(e.target));
 
-  btn_social = dom.createElemDOM("div", "btn_social");
+  let btn_social = dom.createElemDOM("div", "btn_social");
   card_product__like.appendChild(btn_social);
   const btn_like = dom.createElemDOM("div", "btn_social_like");
   btn_social.appendChild(btn_like);

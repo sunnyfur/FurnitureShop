@@ -1,4 +1,9 @@
 const Search = () => {
+    // let parent=document.querySelector(".container_products_all");
+    // let noResults=document.createElement('div');
+    // noResults.className="NoResults title";
+    // noResults.innerHTML="No results, try another query";
+    // parent.insertBefore(noResults, document.querySelector(".container_products"));
     let search = document.getElementById("header__search");
     search.onkeyup = function () {
         let searchCard = document.querySelectorAll(".card-product");
@@ -22,17 +27,17 @@ const Search = () => {
                 anyMatch = anyMatch || isMatching;
                 elem.classList.toggle("hide", !isMatching);
             });
+
             noResult.classList.toggle("hide", anyMatch);
+            noResult.classList.toggle("unhide", !anyMatch)
         } else {
             searchCard.forEach(elem => {
                 elem.classList.remove('hide');
                 document.querySelector("#idShowMore").classList.remove('hide')
             })
         }
-
     }
 }
-
 export {
     Search
 }

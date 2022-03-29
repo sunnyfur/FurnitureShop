@@ -432,10 +432,15 @@ input[type="search"]::-webkit-search-results-decoration {
 
 }
 
+.unhide {
+    display: block !important;
+}
+
 .NoResults {
     font-size: 35px;
     line-height: 120%;
     color: $color_title;
+    display: none;
 
     @media screen and (max-width: $tablet) {
         font-size: 38px;
