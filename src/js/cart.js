@@ -106,15 +106,9 @@ const GetCountCart = () => {
 }
 
 const GetSumCount = () => {
-    let sum = listCart[0].GetProduct().Price;
-    for (let i = 1; i < listCart.length; i++)
-        sum = listCart[i].GetProduct().SumPrice(sum);
 
-    return list.Product.GetPriceFormat(sum);
-    // return listCart.reduce((prev, curr) => {
-    //     console.log(curr.GetProduct())
-    //     curr.GetProduct().SumPrice(prev);
-    // });
+    return list.Product.GetSumCount(listCart);
+
 }
 
 

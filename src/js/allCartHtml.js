@@ -16,13 +16,15 @@ const AddBtn = (element, cartObj) => {
 
     element.closest(".card-product").querySelector(".card-product__description").value = cartObj.Count;
     drawCount.DrawCartCount();
+    refreshPrice();
 }
 
 const DeleteBtn = (element, cartObj) => {
     cart.DeleteProduct(cartObj.Id);
     element.closest(".card-product").querySelector(".card-product__description").value = cartObj.Count;
-    element.closest(".card-product").querySelector(".card_valid").v = "";
+    document.getElementById(cartObj.Id).querySelector(".card_valid").innerText = "";
     drawCount.DrawCartCount();
+    refreshPrice();
 }
 
 const DeleteFromCart = (element, cartObj) => {
@@ -30,6 +32,7 @@ const DeleteFromCart = (element, cartObj) => {
     cart.DeleteFromCart(cartObj.Id);
     element.closest(".card-product").remove();
     drawCount.DrawCartCount();
+    refreshPrice();
 }
 
 
@@ -62,18 +65,21 @@ const GenerateCard = (cartProduct) => {
     return div;
 
 }
+const refreshPrice = () => {
+    const totalPrice = cart.GetSumCount();
+    document.querySelector(".cart__total-cost").innerHTML = totalPrice.sum;
+    document.querySelector(".cart__total-cost_old").innerHTML = totalPrice.sumWithoutDisc;
 
-document.querySelector(".cart__total-cost").innerHTML = cart.GetSumCount();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
+
+
     [...cart.listCart].forEach(cartProduct => document.querySelector('.container_products').appendChild(GenerateCard(cartProduct)));
-    const tt = document.querySelector("#idCart").appendChild(dom.createElemDOM("input"));
-    tt.type = "text";
-    document.addEventListener("onchange", () => {
-        console.log("fdsf");
-        document.querySelector(".cart__total-cost").innerHTML = cart.GetSumCount();
-        // document.querySelector(".cart__total-cost").innerText = cart.GetSumCount();
-    });
+
+    // document.getElementById('idCart').addEventListener("change", refreshPrice);
+    refreshPrice();
 
 
 
