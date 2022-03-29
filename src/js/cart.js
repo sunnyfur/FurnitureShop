@@ -10,10 +10,9 @@ class CartProduct {
 
     }
     set Id(id) {
-        //TODO проверить в списке товаров, если есть добавить, нет выдать ошибку
-
         this._id = id;
     }
+
     get Id() {
 
         return this._id;
@@ -22,16 +21,20 @@ class CartProduct {
     get Count() {
         return this._count;
     }
+
     AddToCount() {
-
-        // if (GetProduct().Count > this._count) {
-        this._count++;
-        alert("Add to cart");
-        // } else {
-        //     throw new Error("There is not enough product");
-        // }
-
+        const count = this.GetProduct().Count;
+        if (count > this._count) {
+            this._count++;
+        } else {
+            throw new Error("Available: " + count);
+        }
     }
+
+    CheckCount() {
+        return GetProduct().Count
+    }
+
     DeleteFromCount() {
         if (this._count > 0) this._count--;
     }
@@ -40,49 +43,89 @@ class CartProduct {
         return list.GetProduct(this.Id);
     }
 
+    ApplyData(json) {
+        Object.assign(this, json);
+    }
 
+}
+
+const GetIndex = (id) => {
+    const listId = [...listCart].map(elem => elem.Id);
+    return listId.indexOf(id);
 }
 
 const AddToCart = (id) => {
     // Найти элемент в корзине
-    const listId = [...listCart].map(elem => elem.Id);
-    const index = listId.indexOf(id);
+
+    const index = GetIndex(id);
     if (index == -1) {
         listCart.push(new CartProduct(id));
 
+        // console.log(listCart);
+
     } else {
-        //     try {
+        // try {
         listCart[index].AddToCount();
-        //     } catch (err) {
-        //         alert(err.message);
-        //     }
+        // } catch (err) {
+        //     throw new Error(err)
+        //     // alert(err.message);
+        // }
     }
 
     storage.setLocal("cart", listCart);
 
+
 }
-const DeleteFromCart = (id) => {
+const DeleteProduct = (id) => {
     // Найти элемент в корзине
-    const listId = [...listCart].map(elem => elem.Id);
-    const index = listId.indexOf(id);
+    const index = GetIndex(id);
     if (index != -1) {
         listCart[index].DeleteFromCount();
     }
     storage.setLocal("cart", listCart);
 }
 
+const DeleteFromCart = (id) => {
+    const index = GetIndex(id);
+    if (index != -1) {
+        listCart.splice(index, 1);
+        console.log(listCart);
+    }
+    storage.setLocal("cart", listCart);
+}
+const GetCart = (id) => {
+    const index = GetIndex(id)
+    if (index != -1) {
+        return listCart[index];
+    }
+    return false;
+}
+
+
+
 // listCart.push(new CartProduct("idProduct1"));
 // listCart.push(new CartProduct("idProduct3"));
 
 // AddToCart("idProduct1");
 // AddToCart("idProduct1");
-const GetCart = () => {
+const GetCartAll = () => {
     listCart = storage.getLocal("cart");
+    listCart = listCart.map(elem => {
+        const cardP = new CartProduct;
+        cardP.ApplyData(elem);
+        return cardP;
+
+    });
+
 }
-// GetCart();
+GetCartAll();
 
 export {
     listCart,
+    GetCart,
     AddToCart,
-    DeleteFromCart
+    DeleteProduct,
+    DeleteFromCart,
+    GetCartAll,
+    CartProduct
 }

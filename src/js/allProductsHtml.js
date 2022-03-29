@@ -11,16 +11,48 @@ const onLikeClick = (element) => {
 }
 
 
+
+const AddToCart = (element, product) => {
+  let erMsg = "";
+  try {
+    cart.AddToCart(product.Id);
+  } catch (err) {
+    erMsg = err.message;
+  }
+  // console.log(element.closest(".card-product"));
+  const card_cart = element.closest(".card-product").querySelector(".card-cart");
+
+  if (!card_cart.classList.contains("card-cart-in")) card_cart.classList.add("card-cart-in");
+  card_cart.querySelector(".card-cart__count").innerText = cart.GetCart(product.Id).Count + "  " + erMsg;
+
+
+}
+
 const GenerateCard = (product) => {
   const card = dom.createElemDOM("div", "card-product");
+
   card.id = product.Id;
+
+  const card_cart = dom.createElemDOM("div", "card-cart");
+  card.appendChild(card_cart);
+  card_cart.appendChild(dom.createElemDOM("div", "card-cart__img"));
+  const cartPr = cart.GetCart(product.Id);
+  let count = "";
+  if (cartPr) {
+    card_cart.classList.add("card-cart-in");
+    count = cartPr.Count;
+  }
+  card_cart.appendChild(dom.createElemDOM("span", "card-cart__count", count));
 
   const product__hover = dom.createElemDOM("div", "card-product__hover");
   card.appendChild(product__hover);
 
-  const btn_add = dom.createElemDOM("button", "btn btn_card", "Add to cart");
+  const btn_add = dom.createElemDOM("input", "btn btn_card", "Add to cart");
+  btn_add.value = "Add to cart";
+  btn_add.type = "button";
+
   product__hover.appendChild(btn_add);
-  btn_add.addEventListener("click", (e) => cart.AddToCart(product.Id));
+  btn_add.addEventListener("click", (e) => AddToCart(e.target, product));
 
   const card_product__like = dom.createElemDOM("div", "card-product__like");
   product__hover.appendChild(card_product__like);
