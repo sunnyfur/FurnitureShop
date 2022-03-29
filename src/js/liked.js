@@ -25,10 +25,9 @@ const toggleLike = (id) => {
     (isLiked(id)) ? listLiked.splice(listLiked.indexOf(id), 1): listLiked.push(id);
     storage.setLocal("favouriteCollection", listLiked);
     console.log(id);
-    (isLiked) ? listLiked.splice(listLiked.indexOf(id), 1): listLiked.push(id);
     console.log(listLiked);
 }
-// TODO  брать массив из LocalStorage, записывать в LocslStorage
+// TODO  брать массив из LocalStorae, записывать в LocslStorage
 
 
 
@@ -40,5 +39,5 @@ export {
     listLiked,
     isLiked,
     toggleLike,
-
+    getListLike
 }

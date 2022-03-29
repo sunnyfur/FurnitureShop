@@ -1,28 +1,22 @@
-import { listLiked } from "./js/liked";
-import { GetProduct, listOfProductsAll } from "./js/products";
+const like = require('./js/liked');
+like.getListLike();
+console.log(like.listLiked);
+
+const products = require('./js/products.js');
+
+const allProductsHTML=require('./js/allProductsHtml.js');
+
+let favouriteProduct;
 
 
+like.listLiked.forEach(e => {
 
-const onLikeClick = (element) => {
-  const likebtn = element.parentNode.querySelector(".btn_social_like");
-  likebtn.classList.toggle("btn_social_liked");
-  like.toggleLike(element.closest(".card-product").id);
 
-}
+    favouriteProduct = products.GetProduct(e);
+    console.log(favouriteProduct);
 
-/* const createFavorite=()=>{
+    document.getElementById('cart-favouirite').appendChild(allProductsHTML.GenerateCard(favouriteProduct));
 
-    like.listLiked.forEach(element =>{
-   
-        let cart = product.GetProduct(element);
-        addCards.GenerateCard(cart);
-     
-     })
+})
 
-}
- */
-addEventListener("DOMContentLoaded", function () {
 
-addCards.GenerateCards();
-    
-});
