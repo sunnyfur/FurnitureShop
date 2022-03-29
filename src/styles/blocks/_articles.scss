@@ -1,0 +1,29 @@
+.articles__container {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    
+    @media screen and (max-width:$tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width:$smallMobile) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.articles_title {
+    font-family: $FontMedium;
+    font-size: 1,2rem;
+    color: $color_title;
+
+}
+
+.articles_date {
+    font-family: $FontMedium;
+    font-size: 1rem;
+    color: $color_text;
+}
+.articles__picture {
+    width: 100%;
+}
