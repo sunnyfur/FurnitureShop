@@ -30,7 +30,10 @@ class Product {
         return this.HasDiscount() ? price : "";
     }
     GetPrice() {
-        return this.HasDiscount() ? this.Price.percentage(100 - this.Discont).toFormat('$0,0.00') : this.Price.toFormat('$0,0.00');
+        return Product.GetPriceFormat(this.GetPriceClear());
+    }
+    GetPriceClear() {
+        return this.HasDiscount() ? this.Price.percentage(100 - this.Discont) : this.Price;
     }
     IsNew() {
         return moment().diff(this.Date, "months") <= 1;
@@ -46,6 +49,30 @@ class Product {
         return price.toFormat('$0,0.00');
 
     }
+
+    static GetSumCount(cart) {
+        let sum = Dinero.default({
+            amount: 0
+        });
+        let sumWithoutDisc = Dinero.default({
+            amount: 0
+        });
+        cart.forEach(element => {
+
+            const product = GetProduct(element.Id);
+            sum = sum.add(product.GetPriceClear().multiply(element.Count));
+            sumWithoutDisc = sumWithoutDisc.add(product.Price.multiply(element.Count));
+        });
+
+        let rez = Product.GetPriceFormat(sumWithoutDisc);
+        if (sum.getAmount() == sumWithoutDisc.getAmount()) rez = "";
+        return {
+            sum: Product.GetPriceFormat(sum),
+            sumWithoutDisc: rez
+        };
+
+    }
+
 
 }
 const GetProduct = (id) => {
