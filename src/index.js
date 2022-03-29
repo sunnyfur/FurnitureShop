@@ -1,5 +1,6 @@
 // Only common code for all pages!!!
 import './styles/index.scss';
+require("./js/cartCount");
 
 // const lists = require("./js/products.js");
 // move to mainPage.js

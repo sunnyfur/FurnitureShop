@@ -101,13 +101,23 @@ const GetCart = (id) => {
     return false;
 }
 
+const GetCountCart = () => {
+    return listCart.reduce((prev, curr) => prev + curr.Count, 0);
+}
+
+const GetSumCount = () => {
+    let sum = listCart[0].GetProduct().Price;
+    for (let i = 1; i < listCart.length; i++)
+        sum = listCart[i].GetProduct().SumPrice(sum);
+
+    return list.Product.GetPriceFormat(sum);
+    // return listCart.reduce((prev, curr) => {
+    //     console.log(curr.GetProduct())
+    //     curr.GetProduct().SumPrice(prev);
+    // });
+}
 
 
-// listCart.push(new CartProduct("idProduct1"));
-// listCart.push(new CartProduct("idProduct3"));
-
-// AddToCart("idProduct1");
-// AddToCart("idProduct1");
 const GetCartAll = () => {
     listCart = storage.getLocal("cart");
     listCart = listCart.map(elem => {
@@ -127,5 +137,7 @@ export {
     DeleteProduct,
     DeleteFromCart,
     GetCartAll,
+    GetCountCart,
+    GetSumCount,
     CartProduct
 }

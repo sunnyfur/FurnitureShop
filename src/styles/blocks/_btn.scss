@@ -49,6 +49,11 @@
             background: $color_button;
             color: $white;
         }
+
+        &:active {
+            background: $white;
+            color: $color_button;
+        }
     }
 
 

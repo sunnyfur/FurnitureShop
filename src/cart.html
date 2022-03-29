@@ -35,10 +35,14 @@
                     </nav>
                     <div class="header__find search">
                         <i class="fas fa-search"></i>
-                        <input type="search" placeholder="Search for minimalist chair..">
+                        <input type="search" id="header__search" class="header__search"
+                            placeholder="Search for minimalist chair..">
                     </div>
-                    <a href="#"><img src="./images/firstblock/like.png" alt="like"></a>
-                    <a href="cart.html"><img class="cart_image" src="./images/firstblock/cart.png" alt="cart"></a>
+                    <a href="favourite.html"><img src="./images/firstblock/like.png" alt="like"></a>
+                    <a class="link_cart" href="cart.html">
+                        <div class="link_cart__img "></div>
+                        <div class="link_cart__count"></div>
+                    </a>
                 </div>
 
             </div>
@@ -49,7 +53,9 @@
             <form id="idCart">
                 <div id="container_cart" class="container__row container_products">
 
-
+                </div>
+                <div><span>Total cost: <span>
+                            <span class="cart__total-cost"></span>
                 </div>
                 <button>Check out</button>
             </form>
