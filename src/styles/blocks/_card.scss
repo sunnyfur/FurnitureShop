@@ -24,6 +24,7 @@
 
 }
 
+
 .card-product {
     $gap: 1rem;
     display: flex;
@@ -138,6 +139,9 @@
         @include cartMix("none", $color);
     }
 
+
+
+
     &__count {
         font-family: $FontMedium;
         font-size: 1rem;
@@ -190,6 +194,8 @@
     $color: $white;
     color: $color;
 
+
+
     &_share {
         width: 1.2rem;
         height: 1.2rem;
@@ -210,17 +216,23 @@
 
     &:hover {
         color: $color_hover;
+
+        .btn_social_share {
+            @include shareMix($color_hover);
+        }
+
+        .btn_social_like {
+            @include heartMix($color_hover, $color_hover);
+        }
     }
 
-    &:hover &_share {
-        @include shareMix($color_hover);
+    &:active,
+    .btn_social_like:active {
+        color: $white;
+
+        .btn_social_like {
+            @include heartMix($white, $white);
+        }
     }
-
-    &:hover &_like {
-        @include heartMix($color_hover, $color_hover);
-    }
-
-
-
 
 }
