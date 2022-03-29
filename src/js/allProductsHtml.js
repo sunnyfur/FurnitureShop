@@ -112,5 +112,6 @@ const GenerateCards = () => {
   document.querySelector("#idShowMore").addEventListener("click", (e) => addCards(startFrom, numOfLoaded))
 }
 export {
-  GenerateCards
+  GenerateCards,
+  GenerateCard
 };

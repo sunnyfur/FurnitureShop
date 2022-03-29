@@ -11,7 +11,7 @@ const getLocal = (type) => {
 
 }
 const setLocal = (type, list) => {
-    localStorage.setItem(type, JSON.stringify(list))
+    localStorage.setItem(type, JSON.stringify(list));
 }
 export {
     getLocal,
