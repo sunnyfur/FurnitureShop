@@ -66,7 +66,7 @@ input[type="search"]::-webkit-search-results-decoration {
     height: 70vh;
     display: grid;
     position: relative;
-    padding: 3.5%;
+    padding: 3%;
     background: linear-gradient(to right, $backgroundColor_dark 60%, $backgroundColor_light 40%);
 }
 
@@ -83,7 +83,7 @@ input[type="search"]::-webkit-search-results-decoration {
     margin-top: 1.5rem;
     margin-left: 10rem;
     background: rgba(252, 249, 249, 0.8);
-    padding: 1rem 3rem;
+    padding: 2rem 3rem;
     z-index: 1;
 
     @media screen and (max-width:$desktop) {
@@ -95,16 +95,18 @@ input[type="search"]::-webkit-search-results-decoration {
 
     @media screen and (max-width:$tablet) {
         width: 15rem;
-        height: 25rem;
+        height: 20rem;
         margin-left: 3.8rem;
         margin-top: 3.5rem;
+        margin-bottom: 3rem;
     }
 
     @media screen and (max-width:$smallMobile) {
         width: 12rem;
-        height: 22rem;
+        height: 16rem;
         margin-left: 3rem;
-        margin-top: 4rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
     }
 
 }
