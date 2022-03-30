@@ -28,3 +28,34 @@
     height: 1.5rem;
     @include cartMix($green, $color_gray3);
 }
+.link_liked {
+    position: relative;
+    display: flex;
+    transition: all 0.3 ease-in-out;
+
+    &__img {
+        width: 1.5rem;
+        height: 1.5rem;
+        @include heartMix("none", $color_gray1);
+    }
+
+    &__img_in {
+        width: 1.4rem;
+        height: 1.4rem;
+        @include heartMix($green, $color_gray3);
+    }
+
+    &__count {
+        $size: 1rem;
+        width: $size;
+        height: $size;
+        font-size: $size;
+        position: absolute;
+        color: $discount;
+        right: -$size;
+        bottom: -$size/2;
+        transition: all 0.3s ease-in-out;
+
+    }
+
+}

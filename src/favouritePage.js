@@ -6,11 +6,13 @@ const products = require('./js/products.js');
 const dom = require("./js/createElementDom");
 
 const cart = require('./js/cart');
+like.isListLiked();
 
 const onLikeClickFavourite = (element) => {
   const likebtn = element.parentNode.querySelector(".btn_social_like");
   likebtn.classList.toggle("btn_social_liked");
   like.toggleLike(element.closest(".card-product").id);
+  like.isListLiked();
   document.getElementById(element.closest(".card-product").id).remove();
 }
 
