@@ -10,19 +10,19 @@
 .main-page__image {
 
     @media screen and (max-width:$desktop) {
-        width: 100%;
+        width: 90%;
     }
 
     @media screen and (max-width:$tablet) {
-        width: 100%;
+        width: 90%;
     }
 
     @media screen and (max-width:$smallMobile) {
-        width: 100%;
+        width: 90%;
     }
 
     @media screen and (max-width:$smallMobile) {
-        width: 100%;
+        width: 90%;
     }
 
 
@@ -34,7 +34,7 @@
     // border: 1px solid black;
     display: grid;
     // margin-left: 5rem;
-    // margin-top: 2rem;
+    margin-top: 2rem;
     width: 90vw;
     z-index: 0;
 

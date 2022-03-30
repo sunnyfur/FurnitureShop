@@ -43,3 +43,8 @@ email__btn.addEventListener("click", (event) => {
         email = "";
     }
 })
+
+document.querySelector(".card__button").addEventListener("click", 
+()=>{
+location.href="#products";
+})
