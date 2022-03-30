@@ -1,12 +1,238 @@
-.title {
-    color: $primaryColor;
+.container_products_all {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 }
 
-.content {
-    &__subtitle {
-        color: red;
-        display: block;
-        height: 200px;
-        background-image: url(../images/oqchorqyiey.jpeg);
+.container_products {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+
+    @media screen and (max-width:$desktop) {
+        grid-template-columns: repeat(3, 1fr);
     }
+
+    @media screen and (max-width:$tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width:$smallMobile) {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+.card-product {
+    $gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &__hover {
+        position: absolute;
+        background-color: rgba($card, 0.75);
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: $gap;
+        align-items: center;
+    }
+
+    &:hover &__hover {
+        opacity: 1;
+    }
+
+    &__bonuses {
+        position: absolute;
+        right: $gap;
+        top: $gap;
+        display: flex;
+        gap: $gap;
+    }
+
+
+
+    &__bonus {
+
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: $FontMedium;
+        font-size: 1rem;
+
+        &_sale {
+            background-color: $discount;
+        }
+
+        &_new {
+            background-color: $green;
+        }
+    }
+
+
+
+
+
+    &__image {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &__like {
+        display: flex;
+        justify-content: space-between;
+        column-gap: $gap;
+        font-family: $defaultFont;
+        font-size: 1rem;
+
+
+    }
+
+    &__info {
+        background-color: $card_down;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: $gap;
+        padding-bottom: $gap*2;
+    }
+
+    &__price {
+        display: flex;
+        column-gap: $gap;
+    }
+}
+
+
+.card-cart {
+    $gap: 1rem;
+    opacity: 0;
+    position: absolute;
+    left: $gap;
+    top: $gap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: $gap;
+    z-index: 3;
+
+    $color: $discount;
+    color: $color;
+
+    &__img {
+        width: 1.5rem;
+        height: 1.5rem;
+        @include cartMix("none", $color);
+    }
+
+
+
+
+    &__count {
+        font-family: $FontMedium;
+        font-size: 1rem;
+    }
+
+}
+
+.card-cart-in {
+    opacity: 1;
+
+
+
+}
+
+.card-product__title {
+    font-family: $FontSemiBold;
+    font-size: 1.2rem;
+    color: $color_title;
+
+}
+
+.card-product__description {
+    font-family: $FontMedium;
+    font-size: 1rem;
+    color: $color_text;
+}
+
+
+.price_main {
+    font-family: $FontSemiBold;
+    font-size: 1.1rem;
+    color: $color_title;
+}
+
+.price_old {
+    font-family: $defaultFont;
+    font-size: 1rem;
+    color: $color_old-price;
+}
+
+.card-product__text {
+    margin: 0px;
+}
+
+.btn_social {
+    display: flex;
+    column-gap: 0.5rem;
+    justify-content: center;
+    cursor: pointer;
+    $color: $white;
+    color: $color;
+
+
+
+    &_share {
+        width: 1.2rem;
+        height: 1.2rem;
+        @include shareMix($color);
+    }
+
+    &_like {
+        width: 1.5rem;
+        height: 1.5rem;
+        @include heartMix("none", $color);
+    }
+
+    &_liked {
+        @include heartMix($white, $white);
+    }
+
+    $color_hover:$discount;
+
+    &:hover {
+        color: $color_hover;
+
+        .btn_social_share {
+            @include shareMix($color_hover);
+        }
+
+        .btn_social_like {
+            @include heartMix($color_hover, $color_hover);
+        }
+    }
+
+    &:active,
+    .btn_social_like:active {
+        color: $white;
+
+        .btn_social_like {
+            @include heartMix($white, $white);
+        }
+    }
+
 }

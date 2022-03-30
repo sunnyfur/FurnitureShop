@@ -1,15 +1,45 @@
+// Only common code for all pages!!!
 import './styles/index.scss';
-const test = require('./js/about.js');
-// import {
-//     sayHi,
-//     sayBye
-// } from './js/about.js';
+require("./js/cartCount");
 
-// console.log('hello webpack!');
-// console.log('hello webpack2!');
+// const lists = require("./js/products.js");
+// move to mainPage.js
+// const addCards = require("./js/allProductsHtml.js");
+// addCards.GenerateCards();
+// require('./js/cart');
+// const slider = require("./js/slider.js");
+// slider.SliderHeaderBlock();
+// slider.SliderBeautifulBlock();
 
-// sayHi('John'); // Hello, John!
-// sayBye('John'); // Bye, John!
-//2 вариант подключения
-// test.sayHi('John'); // Hello, John!
-// test.sayBye('John'); // Bye, John!
+
+const HeaderSearch = require("./js/search.js");
+HeaderSearch.Search();
+
+let arrayEmail = [];
+document.addEventListener("DOMContentLoaded", function (event) {
+    if (localStorage.getItem('email') != null) {
+        arrayEmail = JSON.parse(localStorage.getItem('email'));
+    }
+});
+
+email__btn.addEventListener("click", (event) => {
+    let mailFormat = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;
+    let email = document.querySelector(".form-update__input").value;
+    if (email == "") {
+        document.getElementById('errEmail').textContent = "Вы не ввели Email";
+        document.getElementById('FollowEmail').textContent = '';
+    } else if (!email.match(mailFormat)) {
+        document.getElementById('errEmail').textContent = "Неверный формат Email. Пример: example@mail.com";
+        email = "";
+        document.querySelector(".form-update__input").textContent = "";
+        document.getElementById('FollowEmail').textContent = '';
+        return false;
+    } else {
+        document.getElementById('errEmail').textContent = '';
+        arrayEmail.push(email);
+        localStorage.setItem('email', JSON.stringify(arrayEmail));
+        document.querySelector(".form-update__input").textContent = "";
+        document.getElementById('FollowEmail').textContent = "Вы подписались на обновления";
+        email = "";
+    }
+})

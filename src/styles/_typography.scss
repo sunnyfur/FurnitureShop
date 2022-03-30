@@ -1,0 +1,32 @@
+$defaultFont:'GilroyRegular',
+sans-serif;
+$FontBold:'GilroyBold',
+sans-serif;
+$FontMedium:'GilroyMedium',
+sans-serif;
+$FontSemiBold:'GilroySemiBold',
+sans-serif;
+
+.title {
+    font-family: $FontBold;
+}
+
+.subtitle {
+    font-family: $FontBold;
+    text-align: center;
+    font-size: 40px;
+    line-height: 120%;
+    color: $color_title;
+
+    @media screen and (max-width: $tablet) {
+        font-size: 38px;
+    }
+
+    @media screen and (max-width: $mobile) {
+        font-size: 36px;
+    }
+
+    @media screen and (max-width: $smallMobile) {
+        font-size: 32px;
+    }
+}
