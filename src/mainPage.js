@@ -8,3 +8,4 @@ slider.SliderHeaderBlock();
 slider.SliderBeautifulBlock();
 const search=require("./js/search.js");
 search.Search();
+like.isListLiked();
