@@ -1,3 +1,5 @@
+const like=require('./js/liked.js');
+like.getListLike();
 const addCards = require("./js/allProductsHtml.js");
 addCards.GenerateCards();
 require('./js/cart');
