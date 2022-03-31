@@ -43,28 +43,37 @@ const SliderHeaderBlock = () => {
 }
 
 
-
+let countClick = 0;
 const SliderBeautifulBlock = () => {
 
     carousel.querySelector('.arrow').onclick = function () {
 
-        let width = 500; // ширина картинки
-        let count = 2; // видимое количество изображений
+        let width = 530; // ширина картинки
+        let count = 1; // видимое количество изображений
 
         let list = carousel.querySelector('ul');
         let listElems = carousel.querySelectorAll('li');
 
         let position = 0; // положение ленты прокрутки
-        position -= width * count;
-        position = Math.max(position, -width * (listElems.length - count));
-        list.style.marginLeft = position + 'px';
-        // переместить элемент вниз 
-        const firstElem = listElems[0];
-        list.appendChild(firstElem);
+
+        if ((countClick + 2) == listElems.length) {
+            list.style.opacity = 0;
+            countClick = -1;
+            position -= width * count + width * countClick++;
+            list.style.marginLeft = position + 'px';
+            list.style.opacity = 1;
+        } else {
+            position -= width * count + width * countClick++;
+            list.style.marginLeft = position + 'px';
+        }
 
 
     };
 }
+
+
+
+
 
 export {
     SliderHeaderBlock,

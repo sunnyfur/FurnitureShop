@@ -65,13 +65,18 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .main-page {
-    padding-top: 4rem;
+    padding-top: 1rem;
     margin-top: 80px; // такая же как высота header
-    height: 70vh;
+    min-height: 70vh;
     display: grid;
     position: relative;
     padding: 3%;
     background: linear-gradient(to right, $backgroundColor_dark 60%, $backgroundColor_light 40%);
+
+    @media screen and (min-width:$desktop) {
+        margin-top: 40px;
+    }
+
 }
 
 // .card,
