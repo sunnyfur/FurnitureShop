@@ -6,3 +6,6 @@ slider.SliderHeaderBlock();
 slider.SliderBeautifulBlock();
 const search = require("./js/search.js");
 search.Search();
+
+const like = require('./js/liked');
+like.getListLike();

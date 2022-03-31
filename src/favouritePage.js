@@ -1,5 +1,6 @@
-const like = require('./js/liked');
 
+const like = require('./js/liked');
+like.getListLike();
 
 const products = require('./js/products.js');
 const dom = require("./js/createElementDom");
