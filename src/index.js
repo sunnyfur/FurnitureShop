@@ -10,7 +10,9 @@ require("./js/cartCount");
 // const slider = require("./js/slider.js");
 // slider.SliderHeaderBlock();
 // slider.SliderBeautifulBlock();
-
+const like=require ('./js/liked.js')
+like.getListLike();
+like.isListLiked();
 
 const HeaderSearch = require("./js/search.js");
 HeaderSearch.Search();
