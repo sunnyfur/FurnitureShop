@@ -26,10 +26,10 @@ email__btn.addEventListener("click", (event) => {
     let mailFormat = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;
     let email = document.querySelector(".form-update__input").value;
     if (email == "") {
-        document.getElementById('errEmail').textContent = "Вы не ввели Email";
+        document.getElementById('errEmail').textContent = "You didn't enter your Email";
         document.getElementById('FollowEmail').textContent = '';
     } else if (!email.match(mailFormat)) {
-        document.getElementById('errEmail').textContent = "Неверный формат Email. Пример: example@mail.com";
+        document.getElementById('errEmail').textContent = "Incorrect format Email. Example: example@mail.com";
         email = "";
         document.querySelector(".form-update__input").textContent = "";
         document.getElementById('FollowEmail').textContent = '';
@@ -39,7 +39,12 @@ email__btn.addEventListener("click", (event) => {
         arrayEmail.push(email);
         localStorage.setItem('email', JSON.stringify(arrayEmail));
         document.querySelector(".form-update__input").textContent = "";
-        document.getElementById('FollowEmail').textContent = "Вы подписались на обновления";
+        document.getElementById('FollowEmail').textContent = "You've subscribed to an update";
         email = "";
     }
+})
+
+document.querySelector(".card__button").addEventListener("click", 
+()=>{
+location.href="#products";
 })

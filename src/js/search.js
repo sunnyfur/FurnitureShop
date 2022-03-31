@@ -1,9 +1,4 @@
 const Search = () => {
-    // let parent=document.querySelector(".container_products_all");
-    // let noResults=document.createElement('div');
-    // noResults.className="NoResults title";
-    // noResults.innerHTML="No results, try another query";
-    // parent.insertBefore(noResults, document.querySelector(".container_products"));
     let search = document.getElementById("header__search");
     search.onkeyup = function () {
         let searchCard = document.querySelectorAll(".card-product");
