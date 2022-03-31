@@ -105,7 +105,7 @@
 
 .carousel img {
     // width: 100%;
-    width: 30rem;
+    width: 500px;
     object-fit: cover;
     height: 40rem;
     /* делаем этот элемент блочным, чтобы убрать лишнее пространство вокруг картинок */
@@ -180,7 +180,8 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    transition: margin-left 250ms;
+    transition: all 250ms ease-in-out;
+
     /* удаляем пустое пространство между элементами li, у которых установлен inline-block */
     /* http://davidwalsh.name/remove-whitespace-inline-block */
     font-size: 0;
@@ -188,6 +189,6 @@
 
 .gallery li {
     display: inline-block;
-    margin-right: 0.3%;
+    margin-right: 30px;
 
 }
