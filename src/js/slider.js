@@ -66,7 +66,38 @@ const SliderBeautifulBlock = () => {
     };
 }
 
+
+const SliderArticles = () => {
+    let slideIndex = 2; //начальный блок
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("article_block");
+        if (n > slides.length) {
+            slideIndex = 2
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none"; 
+        }
+        slides[slideIndex].style.display = "block";
+        slides[slideIndex-1].style.display = "block";
+        slides[slideIndex-2].style.display = "block";
+    }
+
+
+    document.querySelector('.articles_prev').addEventListener('click', (e) => plusSlides(-1));
+    document.querySelector('.articles_next').addEventListener('click', (e) => plusSlides(1));
+}
 export {
     SliderHeaderBlock,
-    SliderBeautifulBlock
+    SliderBeautifulBlock,
+    SliderArticles
 }

@@ -41,6 +41,11 @@ module.exports = {
       filename: 'favourite.html',
       template: './src/favourite.html',
       chunks: ["index", "favouritePage"]
+    }),
+    new HtmlWebpackPlugin({ // Also generate a test.html
+      filename: 'inspiration.html',
+      template: './src/inspiration.html',
+      chunks: ["index", "inspirationPage"]
     })
   ], //https://www.npmjs.com/package/html-webpack-plugin дока template - путь, откуда и какой файл брать что бы скопмилировать в папку dist
   performance: {
