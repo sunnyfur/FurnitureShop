@@ -104,7 +104,9 @@
 }
 
 .carousel img {
-    width: 100%;
+    // width: 100%;
+    width: 30rem;
+    object-fit: cover;
     height: 40rem;
     /* делаем этот элемент блочным, чтобы убрать лишнее пространство вокруг картинок */
     display: block;
@@ -168,7 +170,7 @@
 }
 
 .gallery {
-    width: 100%;
+    width: 95%;
     overflow: hidden;
 }
 
@@ -187,4 +189,5 @@
 .gallery li {
     display: inline-block;
     margin-right: 0.3%;
+
 }
