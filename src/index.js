@@ -44,7 +44,7 @@ email__btn.addEventListener("click", (event) => {
     }
 })
 
-document.querySelector(".card__button").addEventListener("click", 
-()=>{
-location.href="#products";
-})
+document.querySelector(".card__button").addEventListener("click",
+    () => {
+        location.href = "#products";
+    })
