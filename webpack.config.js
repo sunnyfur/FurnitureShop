@@ -15,7 +15,9 @@ module.exports = {
     index: './src/index.js', // точка входа, куда заглянет вебпак в первую очередь
     cartPage: './src/cartPage.js',
     mainPage: './src/mainPage.js',
-    favouritePage:'./src/favouritePage.js'
+    favouritePage: './src/favouritePage.js',
+    roomPage: './src/roomPage.js',
+    inspPage:'./src/inspPage.js',
   },
   output: { //точка выхода , аналог bandle.js из browserify
     filename: '[name].[contenthash].js',
@@ -43,9 +45,14 @@ module.exports = {
       chunks: ["index", "favouritePage"]
     }),
     new HtmlWebpackPlugin({ // Also generate a test.html
+      filename: 'rooms.html',
+      template: './src/rooms.html',
+      chunks: ["index", "roomPage"]
+    }),
+    new HtmlWebpackPlugin({ // Also generate a test.html
       filename: 'inspiration.html',
       template: './src/inspiration.html',
-      chunks: ["index", "inspirationPage"]
+      chunks: ["index", "inspPage"]
     })
   ], //https://www.npmjs.com/package/html-webpack-plugin дока template - путь, откуда и какой файл брать что бы скопмилировать в папку dist
   performance: {

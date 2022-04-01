@@ -12,11 +12,12 @@ const onLikeClick = (element) => {
 }
 
 const onShareClick = (element)=>{
+  let products=element.closest(".card-product").id
   let title=element.closest(".card-product__text")
 const shareData = {
     title: {title},
     text: 'Look!',
-    url: '#'
+    url: 'https://sunnyfur.github.io/FurnitureShop/#'+{products}
   }
   navigator.share(shareData)
 }
