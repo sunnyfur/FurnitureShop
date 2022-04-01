@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/sunnyfur/FurnitureShop/issues"
   },
-  "homepage": "https://github.com/sunnyfur/FurnitureShop#readme",
+  "homepage": "https://sunnyfur.github.io/FurnitureShop/",
   "devDependencies": {
     "@babel/core": "^7.17.8",
     "@babel/preset-env": "^7.16.11",

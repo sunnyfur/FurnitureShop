@@ -44,11 +44,22 @@ class Product {
         });
         return this.Price.add(price);
     }
+    GetPriceCount(count) {
+        return Product.GetPriceFormat(this.GetPriceClear().multiply(count));
+    }
+    GetOldPriceCount(count) {
+        if (this.HasDiscount()) {
+            const price = this.Price.multiply(count).toFormat('$0,0.00');
+            return price;
+        }
+        return "";
+    }
 
     static GetPriceFormat(price) {
         return price.toFormat('$0,0.00');
 
     }
+
 
     static GetSumCount(cart) {
         let sum = Dinero.default({
