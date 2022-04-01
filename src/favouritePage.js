@@ -7,6 +7,9 @@ const dom = require("./js/createElementDom");
 
 const cart = require('./js/cart');
 
+const LikeSearch = require("./js/search.js");
+LikeSearch.SearchLike();
+
 
 const onLikeClickFavourite = (element) => {
   const likebtn = element.parentNode.querySelector(".btn_social_like");

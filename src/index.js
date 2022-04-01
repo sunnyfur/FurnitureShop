@@ -50,3 +50,8 @@ document.querySelector(".card__button").addEventListener("click",
     () => {
         location.href = "#products";
     })
+
+document.querySelector(".card2__button").addEventListener("click",
+    () => {
+        location.href = "insipation.html";
+    })

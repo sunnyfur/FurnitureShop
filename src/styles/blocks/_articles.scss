@@ -23,6 +23,7 @@
     font-family: $FontSemiBold;
     font-size: 2rem;
     color: $color_title;
+    cursor: pointer;
     font-weight: 600;
 
     @media screen and (max-width:$tablet) {
@@ -56,6 +57,7 @@
 }
 .articles__picture {
     width: 100%;
+    cursor: pointer;
 }
 
 .articles{
@@ -109,6 +111,7 @@
 
 
 .article_block{
+    cursor: pointer;
     &:hover{
         box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
