@@ -9,6 +9,7 @@ const Search = () => {
             document.querySelector(".elems-container_values").classList.add('hide');
             document.querySelector(".beautiful").classList.add('hide');
             document.querySelector(".furniture").classList.add('hide');
+            document.querySelector(".articles").classList.add('hide');
             document.querySelector(".subtitle").innerHTML = "Seaching results";
             searchCard.forEach(elem => {
                 if (elem.innerText.toUpperCase().search(search_value) == -1) {

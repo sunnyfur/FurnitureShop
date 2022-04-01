@@ -15,8 +15,8 @@ module.exports = {
     index: './src/index.js', // точка входа, куда заглянет вебпак в первую очередь
     cartPage: './src/cartPage.js',
     mainPage: './src/mainPage.js',
-    favouritePage:'./src/favouritePage.js',
-    roomPage:'./src/roomPage.js'
+    favouritePage: './src/favouritePage.js',
+    roomPage: './src/roomPage.js'
   },
   output: { //точка выхода , аналог bandle.js из browserify
     filename: '[name].[contenthash].js',
@@ -42,6 +42,11 @@ module.exports = {
       filename: 'favourite.html',
       template: './src/favourite.html',
       chunks: ["index", "favouritePage"]
+    }),
+    new HtmlWebpackPlugin({ // Also generate a test.html
+      filename: 'inspiration.html',
+      template: './src/inspiration.html',
+      chunks: ["index", "inspirationPage"]
     }),
     new HtmlWebpackPlugin({ // Also generate a test.html
       filename: 'rooms.html',
