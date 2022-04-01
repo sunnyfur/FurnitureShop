@@ -10,7 +10,9 @@ require("./js/cartCount");
 // const slider = require("./js/slider.js");
 // slider.SliderHeaderBlock();
 // slider.SliderBeautifulBlock();
-
+const like=require ('./js/liked.js')
+like.getListLike();
+like.isListLiked();
 
 const HeaderSearch = require("./js/search.js");
 HeaderSearch.Search();
@@ -44,7 +46,12 @@ email__btn.addEventListener("click", (event) => {
     }
 })
 
-document.querySelector(".card__button").addEventListener("click", 
-()=>{
-location.href="#products";
-})
+document.querySelector(".card__button").addEventListener("click",
+    () => {
+        location.href = "#products";
+    })
+
+document.querySelector(".card2__button").addEventListener("click",
+    () => {
+        location.href = "insipation.html";
+    })

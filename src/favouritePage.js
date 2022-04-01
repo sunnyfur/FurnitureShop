@@ -1,12 +1,15 @@
+
 const like = require('./js/liked');
 like.getListLike();
-console.log(like.listLiked);
 
 const products = require('./js/products.js');
 const dom = require("./js/createElementDom");
 
 const cart = require('./js/cart');
-like.isListLiked();
+
+const LikeSearch = require("./js/search.js");
+LikeSearch.SearchLike();
+
 
 const onLikeClickFavourite = (element) => {
   const likebtn = element.parentNode.querySelector(".btn_social_like");

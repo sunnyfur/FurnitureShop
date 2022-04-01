@@ -72,10 +72,7 @@ const SliderBeautifulBlock = () => {
 }
 
 
-
-
-
-
+<<<<<<< HEAD
 const SliderArticles = () => {
     let slideIndex = 2; //начальный блок
     showSlides(slideIndex);
@@ -105,6 +102,11 @@ const SliderArticles = () => {
     document.querySelector('.articles_prev').addEventListener('click', (e) => plusSlides(-1));
     document.querySelector('.articles_next').addEventListener('click', (e) => plusSlides(1));
 }
+=======
+
+
+
+>>>>>>> Test
 export {
     SliderHeaderBlock,
     SliderBeautifulBlock,
