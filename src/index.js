@@ -2,6 +2,8 @@
 import './styles/index.scss';
 require("./js/cartCount");
 
+// const zoom=require("./js/inspiration");
+// zoom.ZoomImages();
 // const lists = require("./js/products.js");
 // move to mainPage.js
 // const addCards = require("./js/allProductsHtml.js");
