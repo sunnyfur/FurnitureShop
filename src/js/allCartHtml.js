@@ -42,10 +42,10 @@ const GenerateCard = (cartProduct) => {
     // cartObj.ApplyData(cartProduct);
     const product = cartProduct.GetProduct();
     // console.log(product);
-    const div = dom.createElemDOM("div", "card-product");
+    const div = dom.createElemDOM("div", "card-product_cart");
     div.id = product.Id;
-    div.appendChild(dom.createElemDOM("p", "", product.Name));
-    const count = dom.createElemDOM("input", "card-product__description", cartProduct.Count);
+    div.appendChild(dom.createElemDOM("p", "card-product__text card-product__title", product.Name));
+    const count = dom.createElemDOM("input", "card-product__text card-product__description", cartProduct.Count);
     count.value = cartProduct.Count;
     div.appendChild(count);
     div.appendChild(dom.createElemDOM("p", "card_valid"));
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    [...cart.listCart].forEach(cartProduct => document.querySelector('.container_products').appendChild(GenerateCard(cartProduct)));
+    [...cart.listCart].forEach(cartProduct => document.querySelector('.container_cart').appendChild(GenerateCard(cartProduct)));
 
     // document.getElementById('idCart').addEventListener("change", refreshPrice);
     refreshPrice();

@@ -1,3 +1,13 @@
+#idCart {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 5rem;
+}
+
+.cart__total {
+    grid-column: 2;
+}
+
 .container_cart {
     display: flex;
     flex-direction: column;
@@ -10,13 +20,31 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     position: relative;
+
+    .price_main,
+    .card-product__title {
+        font-size: larger;
+    }
+
+
+    .card-product__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 1rem;
+        padding: 2rem;
+    }
 }
 
-.card-product__info_cart {
+
+
+
+
+
+.card-info__wrap {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding: 2rem;
+    row-gap: 1rem;
 }
 
 .card__del {
@@ -30,4 +58,46 @@
     &:hover {
         @include delMix($discount);
     }
+}
+
+.card-count__wrap {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn_calc {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $FontSemiBold;
+    font-size: 2rem;
+    cursor: pointer;
+    $color: $color_button;
+    $color_hover: $white;
+
+    &_minus {
+        @include minus($color);
+    }
+
+    &_plus {
+        @include plus($color);
+    }
+
+    &:hover {
+        .btn_calc_minus {
+            @include minus($color_hover)
+        }
+
+        .btn_calc_plus {
+            @include plus($color_hover)
+        }
+    }
+
+
+
+
+    // background-color: $backgroundColor_light;
 }
