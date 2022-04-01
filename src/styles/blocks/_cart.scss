@@ -1,0 +1,144 @@
+#idCart {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    justify-items: center;
+
+
+    @media screen and (max-width:$tablet) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.cart__total {
+    grid-column: 2;
+    padding: 3rem;
+
+    @media screen and (max-width:$tablet) {
+        grid-column: 1;
+        position: inherit;
+    }
+}
+
+.container_cart {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    justify-content: center;
+    align-content: center;
+    grid-template-rows: repeat(minmax(3rem, 6rem));
+}
+
+.card-product_cart {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    position: relative;
+
+    @media screen and (max-width:$mobile) {
+        grid-template-columns: 1fr;
+    }
+
+    .price_main,
+    .card-product__title {
+
+        font-size: larger;
+
+    }
+
+
+    .card-product__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 1rem;
+        padding: 3rem 2rem 3rem 4rem;
+        // background-color: rgba($backgroundColor_light, 0.5);
+
+
+        @media screen and (max-width:$mobile) {
+            padding: 1rem;
+        }
+    }
+}
+
+
+
+
+
+
+.card-info__wrap {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.card__del {
+    @include delMix($color_gray1);
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    &:hover {
+        @include delMix($discount);
+    }
+}
+
+.card-count__wrap {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.btn_calc {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $FontSemiBold;
+    font-size: 2rem;
+    cursor: pointer;
+    $color: $color_button;
+    $color_hover: $white;
+
+
+    &_minus {
+        @include minus($color);
+    }
+
+    &_plus {
+        @include plus($color);
+    }
+
+    &:hover {
+        .btn_calc_minus {
+            @include minus($color_hover)
+        }
+
+        .btn_calc_plus {
+            @include plus($color_hover)
+        }
+    }
+
+    &:active {
+        .btn_calc_minus {
+            @include minus($color)
+        }
+
+        .btn_calc_plus {
+            @include plus($color)
+        }
+    }
+
+    .hide {
+        display: none;
+    }
+
+
+
+
+}
