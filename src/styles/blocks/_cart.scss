@@ -1,11 +1,23 @@
 #idCart {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 5rem;
+    justify-items: center;
+
+
+    @media screen and (max-width:$tablet) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .cart__total {
     grid-column: 2;
+    padding: 3rem;
+
+    @media screen and (max-width:$tablet) {
+        grid-column: 1;
+        position: inherit;
+    }
 }
 
 .container_cart {
@@ -14,16 +26,24 @@
     row-gap: 30px;
     justify-content: center;
     align-content: center;
+    grid-template-rows: repeat(minmax(3rem, 6rem));
 }
 
 .card-product_cart {
     display: grid;
     grid-template-columns: 1fr 1fr;
+
     position: relative;
+
+    @media screen and (max-width:$mobile) {
+        grid-template-columns: 1fr;
+    }
 
     .price_main,
     .card-product__title {
+
         font-size: larger;
+
     }
 
 
@@ -32,7 +52,13 @@
         flex-direction: column;
         justify-content: space-around;
         gap: 1rem;
-        padding: 2rem;
+        padding: 3rem 2rem 3rem 4rem;
+        // background-color: rgba($backgroundColor_light, 0.5);
+
+
+        @media screen and (max-width:$mobile) {
+            padding: 1rem;
+        }
     }
 }
 
@@ -64,6 +90,7 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    margin: 1rem 0;
 }
 
 .btn_calc {
@@ -77,6 +104,7 @@
     cursor: pointer;
     $color: $color_button;
     $color_hover: $white;
+
 
     &_minus {
         @include minus($color);
@@ -96,8 +124,21 @@
         }
     }
 
+    &:active {
+        .btn_calc_minus {
+            @include minus($color)
+        }
+
+        .btn_calc_plus {
+            @include plus($color)
+        }
+    }
+
+    .hide {
+        display: none;
+    }
 
 
 
-    // background-color: $backgroundColor_light;
+
 }

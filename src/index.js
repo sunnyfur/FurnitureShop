@@ -2,22 +2,11 @@
 import './styles/index.scss';
 require("./js/cartCount");
 
-// const zoom=require("./js/inspiration");
-// zoom.ZoomImages();
-// const lists = require("./js/products.js");
-// move to mainPage.js
-// const addCards = require("./js/allProductsHtml.js");
-// addCards.GenerateCards();
-// require('./js/cart');
-// const slider = require("./js/slider.js");
-// slider.SliderHeaderBlock();
-// slider.SliderBeautifulBlock();
-const like=require ('./js/liked.js')
+const like = require('./js/liked.js')
 like.getListLike();
 like.isListLiked();
 
-const HeaderSearch = require("./js/search.js");
-HeaderSearch.Search();
+
 
 let arrayEmail = [];
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -50,7 +39,7 @@ email__btn.addEventListener("click", (event) => {
 
 document.querySelector(".card__button").addEventListener("click",
     () => {
-        location.href = "#products";
+        location.href = "index.html#products";
     })
 
 document.querySelector(".card2__button").addEventListener("click",

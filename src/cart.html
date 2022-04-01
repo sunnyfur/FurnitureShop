@@ -49,10 +49,10 @@
 
     <section class="container__row_wide container_products_all">
       <h2 class="subtitle">Your Cart</h2>
-      <form id="idCart">
+      <form id="idCart" class="hide">
         <div id="container_cart" class="container_cart">
 
-          <div class="card-product_cart">
+          <!-- <div class="card-product_cart">
             <img class="card-product__image" src="./images/our products/grifo.png">
             <div class="card-product__info">
               <div class="card-info__wrap">
@@ -65,41 +65,32 @@
               </div>
               <div class="card-count__wrap">
                 <div class="btn_calc btn_white "><span class="btn_calc_minus"></span></div>
-                <p class="card-product__text card-product__title">10</p>
+                <p class="card-product__text card-product__title card-product__count">10</p>
                 <div class='btn_calc btn_white'><span class="btn_calc_plus"></span> </div>
+                <div class="card_valid card-product__text card-product__title"></div>
               </div>
               <div class="card__del"></div>
             </div>
-          </div>
-          <div class="card-product_cart">
-            <img class="card-product__image" src="./images/our products/grifo.png">
-            <div class="card-product__info">
-              <div class="card-info__wrap">
-                <h3 class="card-product__text card-product__title"> Gripho </h3>
-                <p class="card-product__text card-product__description">Jgbcfybt</p>
-                <div class="card-product__price">
-                  <p class="card-product__text price_main ">$300</p>
-                  <del class="price_old">$600</del>
-                </div>
-              </div>
-              <div class="card-count__wrap">
-                <div class="btn_calc btn_white "><span class="btn_calc_minus"></span></div>
-                <p class="card-product__text card-product__title">10</p>
-                <div class='btn_calc btn_white'><span class="btn_calc_plus"></span> </div>
-              </div>
-              <div class="card__del"></div>
-            </div>
-          </div>
+          </div> -->
+
         </div>
         <div class="cart__total">
-          <div><span>Total cost: <span>
-                <span class="cart__total-cost"></span>
-                <del class="cart__total-cost_old"> </del>
+          <div class="card-count__wrap">
+            <p class="card-product__text card-product__title">Total count: </p>
+            <p class="cart__total-count card-product__text price_main"></p>
+          </div>
+          <div class="card-count__wrap">
+            <p class="card-product__text card-product__title">Total cost: </p>
+            <p class="cart__total-cost card-product__text price_main"></p>
+            <del class="cart__total-cost_old price_old"> </del>
           </div>
           <button class="btn_large btn_brown">Check out</button>
         </div>
 
       </form>
+      <div class="wrap_start">
+        <button class="card__button btn btn_brown">Shop Now</button>
+      </div>
     </section>
 
     <footer class="footer">

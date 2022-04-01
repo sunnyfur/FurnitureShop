@@ -43,6 +43,15 @@ class CartProduct {
         return list.GetProduct(this.Id);
     }
 
+    GetPriceCount() {
+
+        return this.GetProduct().GetPriceCount(this.Count);
+
+    }
+    GetOldPriceCount() {
+        return this.GetProduct().GetOldPriceCount(this.Count);
+
+    }
     ApplyData(json) {
         Object.assign(this, json);
     }
@@ -61,16 +70,8 @@ const AddToCart = (id) => {
     const index = GetIndex(id);
     if (index == -1) {
         listCart.push(new CartProduct(id));
-
-        // console.log(listCart);
-
     } else {
-        // try {
         listCart[index].AddToCount();
-        // } catch (err) {
-        //     throw new Error(err)
-        //     // alert(err.message);
-        // }
     }
 
     storage.setLocal("cart", listCart);
