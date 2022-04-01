@@ -1,0 +1,33 @@
+.container_cart {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    justify-content: center;
+    align-content: center;
+}
+
+.card-product_cart {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+}
+
+.card-product__info_cart {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.card__del {
+    @include delMix($color_gray1);
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    &:hover {
+        @include delMix($discount);
+    }
+}

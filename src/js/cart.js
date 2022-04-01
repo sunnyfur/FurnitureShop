@@ -49,6 +49,7 @@ class CartProduct {
 
 }
 
+
 const GetIndex = (id) => {
     const listId = [...listCart].map(elem => elem.Id);
     return listId.indexOf(id);
