@@ -36,13 +36,3 @@ email__btn.addEventListener("click", (event) => {
         email = "";
     }
 })
-
-document.querySelector(".card__button").addEventListener("click",
-    () => {
-        location.href = "index.html#products";
-    })
-
-document.querySelector(".card2__button").addEventListener("click",
-    () => {
-        location.href = "insipation.html";
-    })

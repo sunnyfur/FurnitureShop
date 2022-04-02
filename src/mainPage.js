@@ -10,3 +10,13 @@ search.Search();
 
 const like = require('./js/liked');
 like.getListLike();
+
+document.querySelector(".card__button").addEventListener("click",
+    () => {
+        location.href = "index.html#products";
+    })
+
+document.querySelector(".card2__button").addEventListener("click",
+    () => {
+        location.href = "inspiration.html";
+    })

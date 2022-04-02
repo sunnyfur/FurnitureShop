@@ -124,5 +124,7 @@ const GenerateCards = () => {
 }
 export {
   GenerateCards,
-  GenerateCard
+  GenerateCard,
+  onShareClick,
+  AddToCart
 };

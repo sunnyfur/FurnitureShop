@@ -11,6 +11,13 @@ const GenerateUrl = () => {
     console.log(rooms);
 }
 
+const  clickRoomsImg = (element) => {
+document.getElementById('containerrommglary').classList.remove('container-roomgalary_displayNone');
+ document.getElementById('containerrommglary').classList.add('container-roomgalary');
+ document.getElementById('RoomImgBig').src=element.src;
+  
+  }
+
 const GenerateImg = () => {
     GenerateUrl();
     let div;
@@ -21,10 +28,15 @@ const GenerateImg = () => {
         document.getElementById('containerGallery').appendChild(div);
         image = document.createElement('img');
         image.src = e;
-              div.appendChild(image);
+        div.appendChild(image);
+        image.addEventListener("click", (e) => clickRoomsImg(e.target));
     })
 }
-
+document.getElementById('shapeButton').onclick = function () {
+    document.getElementById('containerrommglary').classList.remove('container-roomgalary');
+ document.getElementById('containerrommglary').classList.add('container-roomgalary_displayNone');
+   
+};
 
 addEventListener("DOMContentLoaded", function () {
     GenerateImg();
