@@ -46,7 +46,7 @@ const RoomsSlidersR=()=>{
     Way=document.getElementById('RoomImgBig').src;
     let index;
     index=rooms.indexOf(Way);
-    if(index===14)
+    if(index==14)
     document.getElementById('RoomImgBig').src=rooms[0];
 else
     document.getElementById('RoomImgBig').src=rooms[index+1];
