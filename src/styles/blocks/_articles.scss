@@ -2,7 +2,7 @@
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(3, 1fr);
-    padding: 6% 0%;
+    padding: 6% 2%;
     margin: 1rem 0;
     grid-column: 2/3;
     grid-row: 2/3;
@@ -64,13 +64,13 @@
     align-items: center;
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: 5% 90% 5%;
+    grid-template-columns: 7.5% 85% 7%;
     grid-template-rows: 10% 90%;
 }
 
 .articles_prev,
 .articles_next {
-    height: 8%;
+    // height: 5%;
     cursor: pointer;
     padding: 1.6rem 1.4rem;
     color: $color_button;
@@ -79,7 +79,7 @@
     background-color: $backgroundColor_dark;
     border-radius: 50%;
     position: relative;
-    margin-right: 5%;
+    margin:auto;
 
   
 &:hover {
@@ -87,17 +87,18 @@
     background-color: $color_button;
 }
 
-    @media screen and (max-width:$desktop) {
-        height: 8%;
-    }
 
-    @media screen and (max-width:$tablet) {
-        height: 5%;
-    }
+    // @media screen and (max-width:$desktop) {
+    //     height: 8%;
+    // }
 
-    @media screen and (max-width:$smallMobile) {
-        height: 3%;
-    }
+    // @media screen and (max-width:$tablet) {
+    //     height: 5%;
+    // }
+
+    // @media screen and (max-width:$smallMobile) {
+    //     height: 3%;
+    // }
 
     }
     .articles_prev{
@@ -107,6 +108,7 @@
 .articles_next {
     grid-column: 3/4;
     grid-row: 2/3;
+    margin-left: -5px;
 }
 
 
