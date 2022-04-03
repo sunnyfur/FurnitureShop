@@ -1,2 +1,2 @@
 # FurnitureShop
-The Furniture Shop group project
+Интернет магазин мебели
