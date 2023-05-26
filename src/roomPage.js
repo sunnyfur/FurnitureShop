@@ -53,13 +53,14 @@ else
 
 }
 const RoomsSlidersL=()=>{
+    
     let Way;
     Way=document.getElementById('RoomImgBig').src;
     let index;
     index=rooms.indexOf(Way);
     console.log(index);
     if(index===0)
-        document.getElementById('RoomImgBig').src=rooms[14];
+        document.getElementById('RoomImgBig').src=rooms[(rooms.length-1)];
     else
     document.getElementById('RoomImgBig').src=rooms[index-1];
 
